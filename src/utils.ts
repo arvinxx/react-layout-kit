@@ -1,4 +1,4 @@
-import type { FlexDirection } from './Flexbox/type';
+import type { FlexDirection } from './type';
 
 export const getFlexDirection = (direction?: FlexDirection, isHorizontal?: boolean) => {
   if (isHorizontal) return 'row';

@@ -1,3 +1,5 @@
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
+
 export type ContentPosition =
   | 'center'
   | 'end'
@@ -15,3 +17,5 @@ export type ContentDistribution =
   | 'stretch';
 
 export type FlexDirection = 'vertical' | 'vertical-reverse' | 'horizontal' | 'horizontal-reverse';
+
+export type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLDivElement>;

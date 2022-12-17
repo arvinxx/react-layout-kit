@@ -1,4 +1,3 @@
-import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -9,7 +8,7 @@ import {
   isVertical,
 } from '@/utils';
 
-import type { ContentDistribution, ContentPosition, FlexDirection } from './type';
+import type { ContentDistribution, ContentPosition, DivProps, FlexDirection } from '@/type';
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
@@ -37,8 +36,7 @@ export interface IFlexbox {
   visible?: boolean;
 }
 
-export type FlexboxProps = IFlexbox &
-  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+export type FlexboxProps = IFlexbox & DivProps;
 
 export const Flexbox = styled.div.attrs<IFlexbox>(() => ({
   className: 'rlk-flexbox',

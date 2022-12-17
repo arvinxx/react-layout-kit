@@ -1,15 +1,13 @@
-import type { FlexboxProps } from '@/Flexbox';
-import { Flexbox } from '@/Flexbox';
-import type { FC } from 'react';
+import { Flexbox, IFlexbox } from '@/Flexbox';
+import { DivProps } from '@/type';
 
-export type CenterProps = Omit<FlexboxProps, 'distribution' | 'direction' | 'align'>;
+export type CenterProps = Omit<IFlexbox, 'distribution' | 'direction' | 'align'>;
 
-const Center: FC<CenterProps> = ({ children, ...res }) => {
-  return (
-    <Flexbox {...res} horizontal align={'center'} distribution={'center'}>
-      {children}
-    </Flexbox>
-  );
-};
+const Center = ({ children, ...res }: CenterProps & DivProps) => (
+  // @ts-ignore
+  <Flexbox {...res} horizontal align={'center'} distribution={'center'}>
+    {children}
+  </Flexbox>
+);
 
 export default Center;
