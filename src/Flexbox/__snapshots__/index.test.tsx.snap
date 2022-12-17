@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flexbox gap 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c0 > *:not(:last-child) {
+  margin-right: 2px;
+}
+
+<div>
+  <div
+    class="c0 layoutkit-flexbox"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+  </div>
+</div>
+`;
