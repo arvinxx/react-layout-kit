@@ -1,6 +1,8 @@
 ---
 title: Grid
-group: 二维布局
+group:
+  title: 二维布局
+  order: 2
 ---
 
 # Grid 网格组件
