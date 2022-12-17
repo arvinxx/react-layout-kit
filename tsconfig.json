@@ -8,8 +8,9 @@
     "baseUrl": ".",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "@arvinxu/npm-template": ["src"],
-      "@arvinxu/npm-template/*": ["src/*", "*"]
+      "@/*": ["./src/*"],
+      "react-layout-kit": ["src"],
+      "react-layout-kit/*": ["src/*", "*"]
     }
   }
 }

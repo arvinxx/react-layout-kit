@@ -1,4 +1,4 @@
-# @arvinxu/npm-template
+# react-layout-kit
 
 [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url] [![install size][npm-size]][npm-size-url]
 
@@ -9,7 +9,7 @@
 <!-- gitpod url -->
 
 [gitpod-badge]: https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod
-[gitpod-url]: https://gitpod.io/#https://github.com/ant-design/@arvinxu/npm-template
+[gitpod-url]: https://gitpod.io/#https://github.com/ant-design/react-layout-kit
 
 <!-- umi url -->
 
@@ -18,35 +18,26 @@
 
 <!-- npm url -->
 
-[npm-image]: http://img.shields.io/npm/v/@arvinxu/npm-template.svg?style=flat-square&color=deepgreen&label=latest
-[npm-url]: http://npmjs.org/package/@arvinxu/npm-template
-[npm-size]: https://img.shields.io/bundlephobia/minzip/@arvinxu/npm-template?color=deepgreen&label=gizpped%20size&style=flat-square
-[npm-size-url]: https://packagephobia.com/result?p=@arvinxu/npm-template
+[npm-image]: http://img.shields.io/npm/v/react-layout-kit.svg?style=flat-square&color=deepgreen&label=latest
+[npm-url]: http://npmjs.org/package/react-layout-kit
+[npm-size]: https://img.shields.io/bundlephobia/minzip/react-layout-kit?color=deepgreen&label=gizpped%20size&style=flat-square
+[npm-size-url]: https://packagephobia.com/result?p=react-layout-kit
 
 <!-- coverage -->
 
-[coverage]: https://codecov.io/gh/arvinxx/npm-template/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/arvinxx/npm-template/branch/master
+[coverage]: https://codecov.io/gh/arvinxx/react-layout-kit/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/arvinxx/react-layout-kit/branch/master
 
 <!-- Github CI -->
 
-[test-ci]: https://github.com/arvinxx/npm-template/workflows/Test%20CI/badge.svg
-[deploy-ci]: https://github.com/arvinxx/npm-template/workflows/Deploy%20CI/badge.svg
-[test-ci-url]: https://github.com/arvinxx/npm-template/actions?query=workflow%3ATest%20CI
-[deploy-ci-ci]: https://github.com/arvinxx/npm-template/actions?query=workflow%3ADeploy%20CI
-[download-image]: https://img.shields.io/npm/dm/@arvinxu/npm-template.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@arvinxu/npm-template
+[test-ci]: https://github.com/arvinxx/react-layout-kit/workflows/Test%20CI/badge.svg
+[deploy-ci]: https://github.com/arvinxx/react-layout-kit/workflows/Deploy%20CI/badge.svg
+[test-ci-url]: https://github.com/arvinxx/react-layout-kit/actions?query=workflow%3ATest%20CI
+[deploy-ci-ci]: https://github.com/arvinxx/react-layout-kit/actions?query=workflow%3ADeploy%20CI
+[download-image]: https://img.shields.io/npm/dm/react-layout-kit.svg?style=flat-square
+[download-url]: https://npmjs.org/package/react-layout-kit
 
 ## 简介
-
-这是一个开发 npm 项目的模板，工程框架选型如下：
-
-- 构建： father4
-- 文档： dumi2
-- CI: Github Action
-- CD:
-  - 文档发布: 使用 vercel 自动化触发文档站构建;
-  - npm 发布: 使用 `semantic-release` 实现 npm 包的自动化发布;
 
 ## 快速上手
 
@@ -55,7 +46,7 @@
 推荐使用 `pnpm` 安装
 
 ```bash
-pnpm i @arvinxu/npm-template -S
+pnpm i react-layout-kit -S
 ```
 
 ### 使用
@@ -67,12 +58,6 @@ pnpm i @arvinxu/npm-template -S
 ### 消费场景一
 
 ### 消费场景二
-
-## 迭代记录
-
-2022.12.17 - 基于蚂蚁研发技术栈配置完成最新的 npm 研发脚手架
-
-详情：[CHANGELOG](./CHANGELOG.md)
 
 ## License
 
