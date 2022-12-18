@@ -42,7 +42,7 @@ export const Flexbox = styled.div.attrs<IFlexbox>(() => ({
   className: 'rlk-flexbox',
 }))<IFlexbox>`
   // 是否显示
-  display: ${(props) => (props.visible ? 'none' : 'flex')};
+  display: ${(props) => (props.visible === false ? 'none' : 'flex')};
 
   flex: ${(props) => props.flex};
 
