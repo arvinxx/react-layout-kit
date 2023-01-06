@@ -19,7 +19,9 @@ const config: Config.InitialOptions = {
   moduleNameMapper: {
     'react-layout-kit/(.*)$': '<rootDir>/src/$1',
     'react-layout-kit': '<rootDir>/src',
+    '@/(.*)$': '<rootDir>/src/$1',
   },
+  snapshotSerializers: ['@emotion/jest/serializer'],
   // if you require some es-module npm package, please uncomment below line and insert your package name
   // transformIgnorePatterns: ['node_modules/(?!.*(lodash-es|your-es-pkg-name)/)']
 };

@@ -1,5 +1,5 @@
 {
-  "include": ["src", "tests", ".dumi/**/*", ".dumirc.ts", "*.ts"],
+  "include": ["src/**/*.ts", "tests", ".dumi/**/*", ".dumirc.ts", "*.ts"],
   "compilerOptions": {
     "strict": true,
     "declaration": true,
@@ -9,6 +9,7 @@
     "baseUrl": ".",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
+      "@/*": ["src/*"],
       "react-layout-kit": ["src"],
       "react-layout-kit/*": ["src/*", "*"]
     }

@@ -8,7 +8,9 @@ describe('Center', () => {
 
     const container = await findByTestId('container');
 
-    expect(container).toHaveStyleRule('display', 'flex');
-    expect(container).toHaveStyleRule('flex-direction', 'row');
+    expect(container).toHaveStyle('display:flex');
+    expect(container).toHaveStyle('flex-direction:row');
+    expect(container).toHaveStyle('align-items:center');
+    expect(container).toHaveStyle('justify-content:center');
   });
 });

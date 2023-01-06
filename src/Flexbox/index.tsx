@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { cx, styled } from 'antd-style';
 
 import {
   getCssValue,
@@ -9,6 +9,7 @@ import {
 } from '@/utils';
 
 import type { ContentDistribution, ContentPosition, DivProps, FlexDirection } from '@/type';
+import { FC } from 'react';
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
@@ -38,9 +39,7 @@ export interface IFlexbox {
 
 export type FlexboxProps = IFlexbox & DivProps;
 
-export const Flexbox = styled.div.attrs<IFlexbox>(() => ({
-  className: 'rlk-flexbox',
-}))<IFlexbox>`
+const Basic = styled.div<IFlexbox>`
   // 是否显示
   display: ${(props) => (props.visible === false ? 'none' : 'flex')};
 
@@ -71,3 +70,11 @@ export const Flexbox = styled.div.attrs<IFlexbox>(() => ({
       isVertical(props.direction, props.horizontal) && getCssValue(props.gap)};
   }
 `;
+
+export const Flexbox: FC<FlexboxProps> = ({ className, children, ...props }) => {
+  return (
+    <Basic {...props} className={cx('rlk-flexbox', className)}>
+      {children}
+    </Basic>
+  );
+};
