@@ -3,8 +3,9 @@
   "version": "1.2.1",
   "description": "a npm develop template",
   "keywords": [
-    "npm",
-    "template"
+    "react",
+    "layout",
+    "flexbox"
   ],
   "homepage": "https://github.com/arvinxx/react-layout-kit",
   "bugs": {
@@ -17,11 +18,10 @@
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",
   "sideEffects": false,
-  "main": "lib/index.js",
+  "main": "es/index.js",
   "module": "es/index.js",
-  "types": "lib/index.d.ts",
+  "types": "es/index.d.ts",
   "files": [
-    "lib",
     "es"
   ],
   "scripts": {
