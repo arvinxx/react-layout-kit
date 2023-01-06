@@ -1,5 +1,11 @@
 # Changelog
 
+# [1.2.0](https://github.com/arvinxx/react-layout-kit/compare/v1.1.1...v1.2.0) (2023-01-06)
+
+### ✨ Features
+
+- 使用 antd-style 实现布局组件 ([4a0d057](https://github.com/arvinxx/react-layout-kit/commit/4a0d057))
+
 ## [1.1.1](https://github.com/arvinxx/react-layout-kit/compare/v1.1.0...v1.1.1) (2022-12-17)
 
 ### 🐛 Bug Fixes
