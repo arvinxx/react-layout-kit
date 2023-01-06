@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/arvinxx/react-layout-kit/compare/v1.2.1...v1.2.2) (2023-01-06)
+
+### 🐛 Bug Fixes
+
+- export types ([4c78168](https://github.com/arvinxx/react-layout-kit/commit/4c78168))
+- 移除 lib，只保留 es 模块 ([f1867c6](https://github.com/arvinxx/react-layout-kit/commit/f1867c6))
+
 ## [1.2.1](https://github.com/arvinxx/react-layout-kit/compare/v1.2.0...v1.2.1) (2023-01-06)
 
 # [1.2.0](https://github.com/arvinxx/react-layout-kit/compare/v1.1.1...v1.2.0) (2023-01-06)
