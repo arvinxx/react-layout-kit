@@ -27,7 +27,7 @@
   "scripts": {
     "build": "father build",
     "build:watch": "father dev",
-    "ci": "npm run lint && npm run type-check",
+    "ci": "npm run lint && npm run doctor && npm run type-check",
     "clean": "rm -rf es lib dist coverage .dumi/tmp .eslintcache",
     "dev": "dumi dev",
     "docs:build": "dumi build",
@@ -97,6 +97,9 @@
     "ts-jest": "^29",
     "ts-node": "^10",
     "typescript": "^4"
+  },
+  "peerDependencies": {
+    "react": ">=18"
   },
   "publishConfig": {
     "access": "public",
