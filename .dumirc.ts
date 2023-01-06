@@ -2,6 +2,6 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   themeConfig: {
-    name: 'template',
+    name: 'react-layout-kit',
   },
 });

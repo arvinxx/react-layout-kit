@@ -3,12 +3,14 @@ on:
   push:
     branches:
       - master
+      - alpha
       - beta
+      - rc
 
 jobs:
   test:
     name: Test
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
@@ -24,9 +26,6 @@ jobs:
 
       - name: Install deps
         run: pnpm install
-
-      - name: lint
-        run: pnpm run ci
 
       - name: Test
         run: pnpm run test

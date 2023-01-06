@@ -2,7 +2,7 @@
 
 [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url] [![install size][npm-size]][npm-size-url]
 
-[![Test CI status][test-ci]][test-ci-url] ![Deploy CI][deploy-ci] [![Coverage][coverage]][codecov-url]
+[![Test CI status][test-ci]][test-ci-url] [![Deploy CI][release-ci]][release-ci-url] [![Coverage][coverage]][codecov-url]
 
 [![ docs by dumi][dumi-url]](https://d.umijs.org/) [![Build With father][father-url]](https://github.com/umijs/father/)
 
@@ -31,9 +31,9 @@
 <!-- Github CI -->
 
 [test-ci]: https://github.com/arvinxx/react-layout-kit/workflows/Test%20CI/badge.svg
-[deploy-ci]: https://github.com/arvinxx/react-layout-kit/workflows/Deploy%20CI/badge.svg
+[release-ci]: https://github.com/arvinxx/react-layout-kit/workflows/Release%20CI/badge.svg
 [test-ci-url]: https://github.com/arvinxx/react-layout-kit/actions?query=workflow%3ATest%20CI
-[deploy-ci-ci]: https://github.com/arvinxx/react-layout-kit/actions?query=workflow%3ADeploy%20CI
+[release-ci-url]: https://github.com/arvinxx/react-layout-kit/actions?query=workflow%3ARelease%20CI
 [download-image]: https://img.shields.io/npm/dm/react-layout-kit.svg?style=flat-square
 [download-url]: https://npmjs.org/package/react-layout-kit
 

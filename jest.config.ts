@@ -1,4 +1,4 @@
-import { Config, createConfig } from '@umijs/max/test';
+import { Config, createConfig } from '@umijs/test';
 
 const base = createConfig({
   target: 'browser',
@@ -17,7 +17,6 @@ const config: Config.InitialOptions = {
     '!src/.umi-production/**',
   ],
   moduleNameMapper: {
-    '@/(.*)$': '<rootDir>/src/$1',
     'react-layout-kit/(.*)$': '<rootDir>/src/$1',
     'react-layout-kit': '<rootDir>/src',
   },
