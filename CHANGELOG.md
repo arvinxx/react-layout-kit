@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.3](https://github.com/arvinxx/react-layout-kit/compare/v1.2.2...v1.2.3) (2023-01-06)
+
+### 🐛 Bug Fixes
+
+- 使用 emoiton 原始依赖替换 antd-style ([083b136](https://github.com/arvinxx/react-layout-kit/commit/083b136))
+
 ## [1.2.2](https://github.com/arvinxx/react-layout-kit/compare/v1.2.1...v1.2.2) (2023-01-06)
 
 ### 🐛 Bug Fixes
