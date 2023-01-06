@@ -4,13 +4,14 @@ import { Center } from 'react-layout-kit';
 
 describe('Center', () => {
   it('默认', async () => {
-    const { findByTestId } = render(<Center data-testid={'container'}>123</Center>);
+    const { container } = render(<Center data-testid={'container'}>123</Center>);
 
-    const container = await findByTestId('container');
+    const node = container.firstChild;
 
-    expect(container).toHaveStyle('display:flex');
-    expect(container).toHaveStyle('flex-direction:row');
-    expect(container).toHaveStyle('align-items:center');
-    expect(container).toHaveStyle('justify-content:center');
+    expect(node).toHaveStyle('display:flex');
+    expect(node).toHaveStyle('flex-direction:row');
+    expect(node).toHaveStyle('align-items:center');
+    expect(node).toHaveStyle('justify-content:center');
+    expect(container).toMatchSnapshot();
   });
 });

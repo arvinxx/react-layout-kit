@@ -9,6 +9,7 @@ describe('Flexbox', () => {
 
     expect(container).toHaveStyle({ display: 'flex' });
     expect(container).toHaveStyle({ flexDirection: 'column' });
+    expect(res.container).toMatchSnapshot();
   });
 
   it('横向', () => {
@@ -22,6 +23,7 @@ describe('Flexbox', () => {
 
     expect(container).toHaveStyle('display:flex');
     expect(container).toHaveStyle('flex-direction:row');
+    expect(res.container).toMatchSnapshot();
   });
 
   it('gap', () => {
@@ -35,6 +37,7 @@ describe('Flexbox', () => {
 
     expect(container).toHaveStyle('display:flex');
     expect(container).toHaveStyle('gap:2px');
+    expect(res.container).toMatchSnapshot();
   });
 
   it('不可见', async () => {
@@ -49,10 +52,11 @@ describe('Flexbox', () => {
 
     expect(container).toHaveStyle('display:none');
     expect(container).toHaveStyle('gap:2px');
+    expect(res.container).toMatchSnapshot();
   });
 
   it('横向撑开', async () => {
-    const { findByTestId } = render(
+    const { findByTestId, container: res } = render(
       <Flexbox data-testid={'container'} horizontal distribution={'space-between'}>
         <div>1</div>
         <div>2</div>
@@ -65,10 +69,11 @@ describe('Flexbox', () => {
     expect(container).toHaveStyle('flex-direction:row');
     expect(container).toHaveStyle('justify-content:space-between');
     expect(container).toHaveStyle('width:100%');
+    expect(res).toMatchSnapshot();
   });
 
   it('其余方向', async () => {
-    const { findByTestId } = render(
+    const { findByTestId, container: res } = render(
       <Flexbox data-testid={'container'} horizontal>
         <div>1</div>
         <div>2</div>
@@ -79,5 +84,6 @@ describe('Flexbox', () => {
 
     expect(container).toHaveStyle('display:flex');
     expect(container).toHaveStyle('flex-direction:row');
+    expect(res).toMatchSnapshot();
   });
 });
