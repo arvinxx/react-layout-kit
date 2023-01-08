@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { ContentDistribution, ContentPosition, FlexDirection } from '@/type';
+import { ContentDistribution, ContentPosition, DivProps, FlexDirection } from '@/type';
 import {
   getCssValue,
   getFlexDirection,
@@ -8,6 +8,7 @@ import {
   isSpaceDistribution,
   isVertical,
 } from '@/utils';
+import { FC } from 'react';
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
@@ -34,7 +35,9 @@ export interface IFlexbox {
   visible?: boolean;
 }
 
-const FlexBasic = styled.div<IFlexbox>`
+export interface FlexBasicProps extends IFlexbox, DivProps {}
+
+const FlexBasic: FC<FlexBasicProps> = styled.div<IFlexbox>`
   // 是否显示
   display: ${(props) => (props.visible === false ? 'none' : 'flex')};
 

@@ -1,16 +1,11 @@
-import FlexBasic, { IFlexbox } from '@/FlexBasic';
-import { CommonProps, DivProps } from '@/type';
+import FlexBasic, { FlexBasicProps } from '@/FlexBasic';
+import { CommonProps } from '@/type';
 import { getPrefix } from '@/utils';
 import { cx } from '@emotion/css';
 
-export type CenterProps = Omit<IFlexbox, 'distribution' | 'direction' | 'align'>;
+export type CenterProps = Omit<FlexBasicProps, 'distribution' | 'direction' | 'align'>;
 
-const Center = ({
-  children,
-  className,
-  prefixCls,
-  ...res
-}: CenterProps & DivProps & CommonProps) => (
+const Center = ({ children, className, prefixCls, ...res }: CenterProps & CommonProps) => (
   <FlexBasic
     className={cx(`${getPrefix(prefixCls)}-center`, className)}
     {...res}
