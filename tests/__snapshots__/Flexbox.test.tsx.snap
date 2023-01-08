@@ -18,7 +18,7 @@ exports[`Flexbox gap 1`] = `
 
 <div>
   <div
-    class="rlk-flexbox emotion-0"
+    class="layoutkit-flexbox emotion-0"
     data-testid="container"
   >
     <div>
@@ -46,7 +46,7 @@ exports[`Flexbox 不可见 1`] = `
 
 <div>
   <div
-    class="rlk-flexbox emotion-0"
+    class="layoutkit-flexbox emotion-0"
     data-testid="container"
   >
     <div>
@@ -72,7 +72,7 @@ exports[`Flexbox 其余方向 1`] = `
 
 <div>
   <div
-    class="rlk-flexbox emotion-0"
+    class="layoutkit-flexbox emotion-0"
     data-testid="container"
   >
     <div>
@@ -98,7 +98,7 @@ exports[`Flexbox 横向 1`] = `
 
 <div>
   <div
-    class="rlk-flexbox emotion-0"
+    class="layoutkit-flexbox emotion-0"
   >
     <div>
       1
@@ -127,7 +127,7 @@ exports[`Flexbox 横向撑开 1`] = `
 
 <div>
   <div
-    class="rlk-flexbox emotion-0"
+    class="layoutkit-flexbox emotion-0"
     data-testid="container"
   >
     <div>
@@ -153,7 +153,7 @@ exports[`Flexbox 默认 1`] = `
 
 <div>
   <div
-    class="rlk-flexbox emotion-0"
+    class="layoutkit-flexbox emotion-0"
     data-testid="container"
   />
 </div>

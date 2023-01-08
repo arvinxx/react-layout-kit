@@ -1,5 +1,10 @@
 import type { FlexDirection } from './type';
 
+export const getPrefix = (prefixCls?: string) => {
+  if (prefixCls) return prefixCls;
+  return 'layoutkit';
+};
+
 export const getFlexDirection = (direction?: FlexDirection, isHorizontal?: boolean) => {
   if (isHorizontal) return 'row';
 
@@ -15,6 +20,7 @@ export const getFlexDirection = (direction?: FlexDirection, isHorizontal?: boole
       return 'column-reverse';
   }
 };
+
 export const isSpaceDistribution = (distribution?: string) => {
   if (!distribution) return;
   return ['space-between', 'space-around', 'space-evenly'].includes(distribution);

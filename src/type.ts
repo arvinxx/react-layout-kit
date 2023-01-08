@@ -19,3 +19,7 @@ export type ContentDistribution =
 export type FlexDirection = 'vertical' | 'vertical-reverse' | 'horizontal' | 'horizontal-reverse';
 
 export type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLDivElement>;
+
+export interface CommonProps {
+  prefixCls?: string;
+}

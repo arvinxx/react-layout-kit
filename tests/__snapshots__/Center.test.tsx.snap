@@ -21,7 +21,7 @@ exports[`Center 默认 1`] = `
 
 <div>
   <div
-    class="rlk-flexbox emotion-0"
+    class="layoutkit-center emotion-0"
     data-testid="container"
   >
     123
