@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.4](https://github.com/arvinxx/react-layout-kit/compare/v1.2.3...v1.2.4) (2023-01-08)
+
+### 🐛 Bug Fixes
+
+- 修正 layout-kit 的 classname 和之前的一致 ([d727bde](https://github.com/arvinxx/react-layout-kit/commit/d727bde))
+
 ## [1.2.3](https://github.com/arvinxx/react-layout-kit/compare/v1.2.2...v1.2.3) (2023-01-06)
 
 ### 🐛 Bug Fixes
