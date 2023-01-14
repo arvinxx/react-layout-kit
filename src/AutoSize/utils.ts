@@ -1,31 +1,58 @@
 import { CellType, LayoutCell, Result, ResultCell } from './type';
 
 type NodeMap = Map<string, ResultCell>;
-const calcHeight = (children: CellType[], width: number, nodeMap: NodeMap) => {
-  const aspectRatio = children
+
+/**
+ * 递归法获取节点比例
+ * @param children
+ * @param nodeMap
+ */
+const recursionWidthAspectRadio = (children: CellType[], nodeMap: NodeMap): number => {
+  return children
     .map((i) => {
       switch (i.type) {
         case 'image':
-          nodeMap.set(i.id, {
-            aspectRatio: i.aspectRatio,
-            height: 0,
-            width: 0,
-          });
-
+          nodeMap.set(i.id, { aspectRatio: i.aspectRatio, height: 0, width: 0 });
           return i.aspectRatio;
 
-        default:
         case 'cell':
+          // eslint-disable-next-line no-case-declarations
+          let relativeNum = 0;
+
+          i.children.forEach((node) => {
+            switch (node.type) {
+              case 'image':
+                nodeMap.set(node.id, {
+                  aspectRatio: node.aspectRatio,
+                  height: 0,
+                  width: 0,
+                });
+                relativeNum += 1 / node.aspectRatio;
+                break;
+              case 'cell':
+                // eslint-disable-next-line no-case-declarations
+                const x = recursionWidthAspectRadio(node.children, nodeMap);
+                console.log('cell aspectRadio', x);
+                relativeNum += x;
+            }
+          });
+
+          // eslint-disable-next-line no-case-declarations
+          const aspectRatio = 1 / relativeNum;
+
+          nodeMap.set(i.id, { aspectRatio, height: 0, width: 0 });
+
+          return aspectRatio;
+
+        default:
           return 0;
       }
     })
     .reduce((a, b) => a + b);
-
-  return width / aspectRatio;
 };
 
 export const recursionLayout = (layout: LayoutCell, width: number, nodeMap: NodeMap): number => {
-  // 如果是纵向布局，这大概率意味着存在递归计算的情况
+  // 纵向布局求解方案
   if (layout.vertical) {
     // 先初始化设置一轮宽高
     layout.children.forEach((cell) => {
@@ -56,7 +83,9 @@ export const recursionLayout = (layout: LayoutCell, width: number, nodeMap: Node
     return height;
   } else {
     // 计算高度
-    const height = calcHeight(layout.children, width, nodeMap);
+    const aspectRatio = recursionWidthAspectRadio(layout.children, nodeMap);
+
+    const height = width / aspectRatio;
 
     layout.children.forEach((node) => {
       switch (node.type) {
@@ -68,6 +97,12 @@ export const recursionLayout = (layout: LayoutCell, width: number, nodeMap: Node
           });
           break;
         case 'cell':
+          // eslint-disable-next-line no-case-declarations
+          const width = nodeMap.get(node.id)!.aspectRatio * height;
+
+          nodeMap.set(node.id, { ...nodeMap.get(node.id)!, height, width });
+
+          recursionLayout(node, width, nodeMap);
           break;
       }
     });

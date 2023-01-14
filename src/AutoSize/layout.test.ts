@@ -88,5 +88,57 @@ describe('布局算法：', () => {
 
       expect(images).toEqual(result);
     });
+
+    it('第三张插到1下方', () => {
+      const layout: LayoutCell = {
+        type: 'cell',
+        id: '1',
+        children: [
+          {
+            type: 'cell',
+            id: '4',
+            children: [
+              { type: 'image', id: '2', aspectRatio: 1 },
+              { type: 'image', id: '5', aspectRatio: 1 },
+            ],
+            vertical: true,
+          },
+          { type: 'image', id: '3', aspectRatio: 2 },
+        ],
+      };
+
+      const images = clacLayout(layout, 750);
+
+      const result: Result = {
+        '1': {
+          width: 750,
+          height: 300,
+          aspectRatio: 2.5,
+        },
+
+        '3': {
+          width: 600,
+          height: 300,
+          aspectRatio: 2,
+        },
+        '4': {
+          width: 150,
+          height: 300,
+          aspectRatio: 0.5,
+        },
+        '2': {
+          width: 150,
+          height: 150,
+          aspectRatio: 1,
+        },
+        '5': {
+          width: 150,
+          height: 150,
+          aspectRatio: 1,
+        },
+      };
+
+      expect(images).toEqual(result);
+    });
   });
 });
