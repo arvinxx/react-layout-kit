@@ -68,7 +68,7 @@
     "@emotion/jest": "^11",
     "@testing-library/jest-dom": "^5",
     "@testing-library/react": "^13",
-    "@types/jest": "^27",
+    "@types/jest": "^29",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/testing-library__jest-dom": "^5",
