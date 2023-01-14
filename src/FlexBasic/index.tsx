@@ -1,13 +1,7 @@
 import styled from '@emotion/styled';
 
 import { ContentDistribution, ContentPosition, DivProps, FlexDirection } from '@/type';
-import {
-  getCssValue,
-  getFlexDirection,
-  isHorizontal,
-  isSpaceDistribution,
-  isVertical,
-} from '@/utils';
+import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
 import { FC } from 'react';
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
@@ -62,11 +56,6 @@ const FlexBasic: FC<FlexBasicProps> = styled.div<IFlexbox>`
   padding: ${(props) => getCssValue(props.padding)};
 
   gap: ${(props) => getCssValue(props.gap)};
-
-  > *:not(:last-child) {
-    margin-block-end: ${(props) =>
-      isVertical(props.direction, props.horizontal) && getCssValue(props.gap)};
-  }
 `;
 
 export default FlexBasic;
