@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.5](https://github.com/arvinxx/react-layout-kit/compare/v1.2.4...v1.2.5) (2023-01-14)
+
+### 🐛 Bug Fixes
+
+- 修正垂直方向额外出现的 margin-bottom 属性 ([a48314e](https://github.com/arvinxx/react-layout-kit/commit/a48314e))
+
 ## [1.2.4](https://github.com/arvinxx/react-layout-kit/compare/v1.2.3...v1.2.4) (2023-01-08)
 
 ### 🐛 Bug Fixes
