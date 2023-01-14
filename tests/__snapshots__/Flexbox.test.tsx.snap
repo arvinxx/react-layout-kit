@@ -12,10 +12,6 @@ exports[`Flexbox gap 1`] = `
   gap: 2px;
 }
 
-.emotion-0>*:not(:last-child) {
-  margin-block-end: 2px;
-}
-
 <div>
   <div
     class="layoutkit-flexbox emotion-0"
@@ -38,10 +34,6 @@ exports[`Flexbox 不可见 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   gap: 2px;
-}
-
-.emotion-0>*:not(:last-child) {
-  margin-block-end: 2px;
 }
 
 <div>
