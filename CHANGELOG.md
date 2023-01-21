@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1](https://github.com/arvinxx/react-layout-kit/compare/v1.3.0...v1.3.1) (2023-01-21)
+
+### 🐛 Bug Fixes
+
+- 修正 Center 组件无法设定方向的问题 ([79f828e](https://github.com/arvinxx/react-layout-kit/commit/79f828e))
+
 # [1.3.0](https://github.com/arvinxx/react-layout-kit/compare/v1.2.5...v1.3.0) (2023-01-21)
 
 ### ✨ Features
