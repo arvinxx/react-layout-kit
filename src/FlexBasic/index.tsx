@@ -1,8 +1,7 @@
-import styled from '@emotion/styled';
-
+import { css, cx } from '@/styles';
 import { ContentDistribution, ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
@@ -31,31 +30,59 @@ export interface IFlexbox {
 
 export interface FlexBasicProps extends IFlexbox, DivProps {}
 
-const FlexBasic: FC<FlexBasicProps> = styled.div<IFlexbox>`
-  // 是否显示
-  display: ${(props) => (props.visible === false ? 'none' : 'flex')};
+const FlexBasic: FC<FlexBasicProps> = ({
+  visible,
+  flex,
+  gap,
+  direction,
+  horizontal,
+  align,
+  justify,
+  distribution,
+  height,
+  width,
+  padding,
 
-  flex: ${(props) => props.flex};
+  className,
+  children,
+  ...props
+}) => {
+  const justifyContent = justify || distribution;
 
-  flex-direction: ${(props) => getFlexDirection(props.direction, props.horizontal)};
-  justify-content: ${(props) => props.justify || props.distribution};
-  align-items: ${(props) => props.align};
-
-  width: ${(props) => {
-    if (
-      isHorizontal(props.direction, props.horizontal) &&
-      !props.width &&
-      isSpaceDistribution(props.distribution)
-    )
+  const finalWidth = useMemo(() => {
+    if (isHorizontal(direction, horizontal) && !width && isSpaceDistribution(justifyContent))
       return '100%';
 
-    return getCssValue(props.width);
-  }};
-  height: ${(props) => getCssValue(props.height)};
+    return getCssValue(width);
+  }, [direction, horizontal, justifyContent, width]);
 
-  padding: ${(props) => getCssValue(props.padding)};
+  return (
+    <div
+      {...props}
+      className={cx(
+        className,
+        css`
+          // 是否显示
+          display: ${visible === false ? 'none' : 'flex'};
 
-  gap: ${(props) => getCssValue(props.gap)};
-`;
+          flex: ${flex};
+
+          flex-direction: ${getFlexDirection(direction, horizontal)};
+          justify-content: ${justifyContent};
+          align-items: ${align};
+
+          width: ${finalWidth};
+          height: ${getCssValue(height)};
+
+          padding: ${getCssValue(padding)};
+
+          gap: ${getCssValue(gap)};
+        `,
+      )}
+    >
+      {children}
+    </div>
+  );
+};
 
 export default FlexBasic;

@@ -1,7 +1,7 @@
-import { cx } from '@emotion/css';
 import { FC } from 'react';
 
 import FlexBasic, { FlexBasicProps } from '@/FlexBasic';
+import { cx } from '@/styles';
 import { CommonProps } from '@/type';
 import { getPrefix } from '@/utils';
 
