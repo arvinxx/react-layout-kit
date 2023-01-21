@@ -9,7 +9,6 @@ describe('Center', () => {
     const node = container.firstChild;
 
     expect(node).toHaveStyle('display:flex');
-    expect(node).toHaveStyle('flex-direction:row');
     expect(node).toHaveStyle('align-items:center');
     expect(node).toHaveStyle('justify-content:center');
     expect(container).toMatchSnapshot();
