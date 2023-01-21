@@ -1,5 +1,11 @@
 # Changelog
 
+# [1.3.0](https://github.com/arvinxx/react-layout-kit/compare/v1.2.5...v1.3.0) (2023-01-21)
+
+### ✨ Features
+
+- 支持 justify 属性设置 ([37023c4](https://github.com/arvinxx/react-layout-kit/commit/37023c4))
+
 ## [1.2.5](https://github.com/arvinxx/react-layout-kit/compare/v1.2.4...v1.2.5) (2023-01-14)
 
 ### 🐛 Bug Fixes
