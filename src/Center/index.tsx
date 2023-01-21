@@ -9,9 +9,8 @@ const Center = ({ children, className, prefixCls, ...res }: CenterProps & Common
   <FlexBasic
     className={cx(`${getPrefix(prefixCls)}-center`, className)}
     {...res}
-    horizontal
     align={'center'}
-    distribution={'center'}
+    justify={'center'}
   >
     {children}
   </FlexBasic>
