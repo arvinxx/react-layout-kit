@@ -38,7 +38,7 @@ const FlexBasic: FC<FlexBasicProps> = styled.div<IFlexbox>`
   flex: ${(props) => props.flex};
 
   flex-direction: ${(props) => getFlexDirection(props.direction, props.horizontal)};
-  justify-content: ${(props) => props.distribution};
+  justify-content: ${(props) => props.justify || props.distribution};
   align-items: ${(props) => props.align};
 
   width: ${(props) => {
