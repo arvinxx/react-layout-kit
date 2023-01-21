@@ -14,8 +14,6 @@ export interface LayoutCell {
 export type CellType = ImageNode | LayoutCell;
 
 export interface ImageNode {
-  // width: number;
-  // height: number;
   /**
    * 宽高比
    */

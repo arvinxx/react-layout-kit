@@ -226,6 +226,7 @@ describe('布局算法：', () => {
 
       const images = clacLayout(layout, 700);
 
+      // closeTo 的用法 https://jestjs.io/docs/expect#expectclosetonumber-numdigits
       const result: Result = {
         '1': {
           width: 700,
@@ -397,5 +398,150 @@ describe('布局算法：', () => {
 
       expect(images).toEqual(result);
     });
+  });
+
+  it('测试又一种布局', () => {
+    const layout: LayoutCell = {
+      type: 'cell',
+      id: '1',
+      vertical: true,
+      children: [
+        { type: 'image', id: '2', aspectRatio: 2 },
+        {
+          type: 'cell',
+          id: '3',
+          children: [
+            {
+              type: 'cell',
+              id: '5',
+              vertical: true,
+              children: [
+                { type: 'image', id: '6', aspectRatio: 1 },
+                { type: 'image', id: '7', aspectRatio: 1 },
+              ],
+            },
+            { type: 'image', id: '4', aspectRatio: 0.5 },
+          ],
+        },
+      ],
+    };
+
+    const images = clacLayout(layout, 600);
+
+    const result: Result = {
+      '1': {
+        width: 600,
+        height: 900,
+        aspectRatio: 2 / 3,
+      },
+      '2': {
+        width: 600,
+        height: 300,
+        aspectRatio: 2,
+      },
+      '3': {
+        width: 600,
+        height: 600,
+        aspectRatio: 1,
+      },
+      '4': {
+        width: 300,
+        height: 600,
+        aspectRatio: 0.5,
+      },
+      '5': {
+        width: 300,
+        height: 600,
+        aspectRatio: 0.5,
+      },
+      '6': {
+        width: 300,
+        height: 300,
+        aspectRatio: 1,
+      },
+      '7': {
+        width: 300,
+        height: 300,
+        aspectRatio: 1,
+      },
+    };
+
+    expect(images).toEqual(result);
+  });
+  it('多层复杂嵌套', () => {
+    const layout: LayoutCell = {
+      type: 'cell',
+      id: '1',
+      vertical: true,
+      children: [
+        { type: 'image', id: '2', aspectRatio: 2 },
+        {
+          type: 'cell',
+          id: '3',
+          children: [
+            {
+              type: 'cell',
+              id: '5',
+              vertical: true,
+              children: [
+                {
+                  type: 'cell',
+                  id: '8',
+                  children: [
+                    { type: 'image', id: '6', aspectRatio: 1 },
+                    { type: 'image', id: '9', aspectRatio: 1 },
+                    { type: 'image', id: '10', aspectRatio: 1 },
+                  ],
+                },
+                { type: 'image', id: '7', aspectRatio: 1 },
+              ],
+            },
+            { type: 'image', id: '4', aspectRatio: 0.5 },
+          ],
+        },
+      ],
+    };
+
+    const images = clacLayout(layout, 600);
+
+    const result: Result = {
+      '1': {
+        width: 600,
+        height: 900,
+        aspectRatio: 2 / 3,
+      },
+      '2': {
+        width: 600,
+        height: 300,
+        aspectRatio: 2,
+      },
+      '3': {
+        width: 600,
+        height: 600,
+        aspectRatio: 1,
+      },
+      '4': {
+        width: 300,
+        height: 600,
+        aspectRatio: 0.5,
+      },
+      '5': {
+        width: 300,
+        height: 600,
+        aspectRatio: 0.5,
+      },
+      '6': {
+        width: 300,
+        height: 300,
+        aspectRatio: 1,
+      },
+      '7': {
+        width: 300,
+        height: 300,
+        aspectRatio: 1,
+      },
+    };
+
+    expect(images).toEqual(result);
   });
 });
