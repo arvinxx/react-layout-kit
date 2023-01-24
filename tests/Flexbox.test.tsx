@@ -86,4 +86,11 @@ describe('Flexbox', () => {
     expect(container).toHaveStyle('flex-direction:row');
     expect(res).toMatchSnapshot();
   });
+
+  it('支持 as 属性', () => {
+    const res = render(<Flexbox as={'h3'}>h3</Flexbox>);
+    const container = res.container.firstChild;
+
+    expect(container).toMatchSnapshot();
+  });
 });

@@ -1,7 +1,13 @@
 import { css, cx } from '@/styles';
 import { ContentDistribution, ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
-import { FC, useMemo } from 'react';
+import { createElement, ElementType, FC, useMemo } from 'react';
+
+/**
+ * 用于创建
+ * @param as
+ */
+const createContainer = (as: ElementType) => (props: any) => createElement(as, props);
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
@@ -26,6 +32,7 @@ export interface IFlexbox {
    * 是否显示
    */
   visible?: boolean;
+  as?: ElementType;
 }
 
 export interface FlexBasicProps extends IFlexbox, DivProps {}
@@ -43,6 +50,8 @@ const FlexBasic: FC<FlexBasicProps> = ({
   width,
   padding,
 
+  as,
+
   className,
   children,
   ...props
@@ -56,8 +65,10 @@ const FlexBasic: FC<FlexBasicProps> = ({
     return getCssValue(width);
   }, [direction, horizontal, justifyContent, width]);
 
+  const Container = useMemo(() => createContainer(as || 'div'), [as]);
+
   return (
-    <div
+    <Container
       {...props}
       className={cx(
         className,
@@ -81,7 +92,7 @@ const FlexBasic: FC<FlexBasicProps> = ({
       )}
     >
       {children}
-    </div>
+    </Container>
   );
 };
 
