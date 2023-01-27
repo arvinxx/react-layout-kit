@@ -6,6 +6,8 @@ export interface LayoutCell {
    */
   vertical?: boolean;
   children: CellType[];
+  width?: number;
+  height?: number;
 }
 
 /**
