@@ -3,6 +3,9 @@ title: Grid
 group:
   title: 二维布局
   order: 2
+nav:
+  title: 组件
+  order: 2
 ---
 
 # Grid 网格组件
