@@ -1,7 +1,7 @@
 import FlexBasic, { FlexBasicProps } from '@/FlexBasic';
-import { cx } from '@/styles';
 import { CommonProps } from '@/type';
 import { getPrefix } from '@/utils';
+import { cx } from '@emotion/css';
 
 export type CenterProps = Omit<FlexBasicProps, 'distribution' | 'direction' | 'align'>;
 

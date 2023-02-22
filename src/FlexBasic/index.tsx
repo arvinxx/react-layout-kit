@@ -1,6 +1,6 @@
-import { css, cx } from '@/styles';
 import { ContentDistribution, ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
+import { css, cx } from '@emotion/css';
 import { createElement, ElementType, FC, useMemo } from 'react';
 
 /**
