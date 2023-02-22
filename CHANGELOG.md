@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.1](https://github.com/arvinxx/react-layout-kit/compare/v1.4.0...v1.4.1) (2023-02-22)
+
+### 🐛 修复
+
+- 使用默认 emotion css，解决 ssr 需要额外 cache 的问题 ([9df1b68](https://github.com/arvinxx/react-layout-kit/commit/9df1b68))
+
 # [1.4.0](https://github.com/arvinxx/react-layout-kit/compare/v1.3.1...v1.4.0) (2023-01-24)
 
 ### ✨ Features
