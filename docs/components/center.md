@@ -1,5 +1,6 @@
 ---
 title: Center
+atomId: Center
 order: 2
 group: 一维布局
 ---
