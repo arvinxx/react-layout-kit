@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.5.1](https://github.com/arvinxx/react-layout-kit/compare/v1.5.0...v1.5.1) (2023-03-11)
+
+### 🐛 修复
+
+- 修正 cjs 模块打包后在 react18 中无法正常使用的问题 ([4596c19](https://github.com/arvinxx/react-layout-kit/commit/4596c19))
+
 # [1.5.0](https://github.com/arvinxx/react-layout-kit/compare/v1.4.1...v1.5.0) (2023-03-11)
 
 ### ✨ 新特性
