@@ -1,5 +1,11 @@
 # Changelog
 
+# [1.5.0](https://github.com/arvinxx/react-layout-kit/compare/v1.4.1...v1.5.0) (2023-03-11)
+
+### ✨ 新特性
+
+- 同时构建 esm 与 cjs 模块 ([eea4316](https://github.com/arvinxx/react-layout-kit/commit/eea4316))
+
 ## [1.4.1](https://github.com/arvinxx/react-layout-kit/compare/v1.4.0...v1.4.1) (2023-02-22)
 
 ### 🐛 修复
