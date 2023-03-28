@@ -1,13 +1,13 @@
 import FlexBasic, { FlexBasicProps } from '@/FlexBasic';
 import { CommonProps } from '@/type';
 import { getPrefix } from '@/utils';
-import { cx } from '@emotion/css';
 
 export type CenterProps = Omit<FlexBasicProps, 'distribution' | 'direction' | 'align'>;
 
 const Center = ({ children, className, prefixCls, ...res }: CenterProps & CommonProps) => (
   <FlexBasic
-    className={cx(`${getPrefix(prefixCls)}-center`, className)}
+    internalClassName={`${getPrefix(prefixCls)}-center`}
+    className={className}
     {...res}
     align={'center'}
     justify={'center'}

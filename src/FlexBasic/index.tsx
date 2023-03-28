@@ -11,31 +11,84 @@ const createContainer = (as: ElementType) => (props: any) => createElement(as, p
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
+/**
+ * 表示一个 Flexbox 布局组件的接口
+ */
 export interface IFlexbox {
   // 语法糖 api
   /**
    * @title 是否横向
+   * @default false
    */
   horizontal?: boolean;
 
   // 基础 api
+  /**
+   * @title 主轴方向
+   * @enum ["row", "row-reverse", "column", "column-reverse"]
+   * @enumNames ["水平从左到右", "水平从右到左", "垂直从上到下", "垂直从下到上"]
+   * @default "row"
+   */
   direction?: FlexDirection;
+  /**
+   * @title 内容分布
+   * @enum ["start", "end", "center", "between", "around"]
+   * @enumNames ["靠起始位置", "靠结束位置", "居中", "两端对齐", "环绕"]
+   */
   distribution?: ContentDistribution;
+  /**
+   * @title 主轴对齐方式
+   * @enum ["start", "end", "center", "between", "around"]
+   * @enumNames ["靠起始位置", "靠结束位置", "居中", "两端对齐", "环绕"]
+   */
   justify?: ContentDistribution;
+  /**
+   * @title 交叉轴对齐方式
+   * @enum ["start", "end", "center", "baseline", "stretch"]
+   * @enumNames ["靠起始位置", "靠结束位置", "居中", "基线对齐", "拉伸"]
+   * @default "stretch"
+   */
   align?: ContentPosition;
+  /**
+   * @title 主轴方向上的间距
+   * @default 0
+   */
   gap?: CommonSpaceNumber | number;
+  /**
+   * @title 宽度
+   * @default "auto"
+   */
   width?: number | string;
+  /**
+   * @title 高度
+   * @default "auto"
+   */
   height?: number | string;
+  /**
+   * @title 内边距
+   * @default 0
+   */
   padding?: string | number | CommonSpaceNumber;
+  /**
+   * @title flex 值
+   * @default "0 1 auto"
+   */
   flex?: number | string;
   /**
-   * 是否显示
+   * @title 是否显示
+   * @default true
    */
   visible?: boolean;
+  /**
+   * @title 元素类型
+   * @default "div"
+   */
   as?: ElementType;
 }
 
-export interface FlexBasicProps extends IFlexbox, DivProps {}
+export interface FlexBasicProps extends IFlexbox, DivProps {
+  internalClassName?: string;
+}
 
 const FlexBasic: FC<FlexBasicProps> = ({
   visible,
@@ -51,7 +104,7 @@ const FlexBasic: FC<FlexBasicProps> = ({
   padding,
 
   as,
-
+  internalClassName,
   className,
   children,
   ...props
@@ -71,6 +124,7 @@ const FlexBasic: FC<FlexBasicProps> = ({
     <Container
       {...props}
       className={cx(
+        internalClassName,
         css`
           // 是否显示
           display: ${visible === false ? 'none' : 'flex'};
