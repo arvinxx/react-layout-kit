@@ -12,3 +12,5 @@ group: 一维布局
 ## 快速使用
 
 <code src="../demos/Center.tsx"></code>
+
+<API id="Center"></API>
