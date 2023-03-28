@@ -71,7 +71,6 @@ const FlexBasic: FC<FlexBasicProps> = ({
     <Container
       {...props}
       className={cx(
-        className,
         css`
           // 是否显示
           display: ${visible === false ? 'none' : 'flex'};
@@ -89,6 +88,7 @@ const FlexBasic: FC<FlexBasicProps> = ({
 
           gap: ${getCssValue(gap)};
         `,
+        className,
       )}
     >
       {children}
