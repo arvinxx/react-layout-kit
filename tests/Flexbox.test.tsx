@@ -93,4 +93,10 @@ describe('Flexbox', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  it('外部挂载 className', () => {
+    const { container } = render(<Flexbox className={'outer'} />);
+
+    expect(container).toMatchSnapshot();
+  });
 });

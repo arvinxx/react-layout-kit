@@ -77,6 +77,24 @@ exports[`Flexbox 其余方向 1`] = `
 </div>
 `;
 
+exports[`Flexbox 外部挂载 className 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div>
+  <div
+    class="layoutkit-flexbox emotion-0 outer"
+  />
+</div>
+`;
+
 exports[`Flexbox 支持 as 属性 1`] = `
 .emotion-0 {
   display: -webkit-box;
