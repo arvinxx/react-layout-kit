@@ -1,5 +1,16 @@
 # Changelog
 
+# [1.6.0](https://github.com/arvinxx/react-layout-kit/compare/v1.5.1...v1.6.0) (2023-03-28)
+
+### ✨ 新特性
+
+- 支持 padding inline 和 padding block 属性 ([6b8638a](https://github.com/arvinxx/react-layout-kit/commit/6b8638a))
+
+### 🐛 修复
+
+- 修正 className 插入顺序问题 ([b637326](https://github.com/arvinxx/react-layout-kit/commit/b637326))
+- 修正 className 插入顺序问题实现 ([0c17a0c](https://github.com/arvinxx/react-layout-kit/commit/0c17a0c))
+
 ## [1.5.1](https://github.com/arvinxx/react-layout-kit/compare/v1.5.0...v1.5.1) (2023-03-11)
 
 ### 🐛 修复
