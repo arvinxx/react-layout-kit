@@ -70,6 +70,14 @@ export interface IFlexbox {
    */
   padding?: string | number | CommonSpaceNumber;
   /**
+   * @title 内联内边距
+   */
+  paddingInline?: string | number;
+  /**
+   * @title 块内边距
+   */
+  paddingBlock?: string | number;
+  /**
    * @title flex 值
    * @default "0 1 auto"
    */
@@ -102,7 +110,8 @@ const FlexBasic: FC<FlexBasicProps> = ({
   height,
   width,
   padding,
-
+  paddingInline,
+  paddingBlock,
   as,
   internalClassName,
   className,
@@ -139,6 +148,9 @@ const FlexBasic: FC<FlexBasicProps> = ({
           height: ${getCssValue(height)};
 
           padding: ${getCssValue(padding)};
+
+          padding-inline: ${getCssValue(paddingInline)};
+          padding-block: ${getCssValue(paddingBlock)};
 
           gap: ${getCssValue(gap)};
         `,

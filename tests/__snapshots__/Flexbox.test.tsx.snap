@@ -27,6 +27,58 @@ exports[`Flexbox gap 1`] = `
 </div>
 `;
 
+exports[`Flexbox paddingBlock 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-block: 24px;
+}
+
+<div>
+  <div
+    class="layoutkit-flexbox emotion-0"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Flexbox paddingInline 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding-inline: 24px;
+}
+
+<div>
+  <div
+    class="layoutkit-flexbox emotion-0"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Flexbox 不可见 1`] = `
 .emotion-0 {
   display: none;

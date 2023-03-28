@@ -99,4 +99,30 @@ describe('Flexbox', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  it('paddingInline', () => {
+    const res = render(
+      <Flexbox horizontal paddingInline={24}>
+        <div>1</div>
+        <div>2</div>
+      </Flexbox>,
+    );
+    const container = res.container.firstChild;
+
+    expect(container).toHaveStyle('padding-inline:24px');
+    expect(res.container).toMatchSnapshot();
+  });
+
+  it('paddingBlock', () => {
+    const res = render(
+      <Flexbox horizontal paddingBlock={24}>
+        <div>1</div>
+        <div>2</div>
+      </Flexbox>,
+    );
+    const container = res.container.firstChild;
+
+    expect(container).toHaveStyle('padding-block:24px');
+    expect(res.container).toMatchSnapshot();
+  });
 });
