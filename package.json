@@ -65,9 +65,11 @@
   "devDependencies": {
     "@commitlint/cli": "^17",
     "@emotion/jest": "^11",
+    "@testing-library/jest-dom": "^5",
     "@testing-library/react": "^13",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/testing-library__jest-dom": "^5",
     "@umijs/lint": "^4",
     "@vitest/coverage-c8": "latest",
     "antd": "^5",

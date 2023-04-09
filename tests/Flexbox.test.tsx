@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-
 import { Flexbox } from 'react-layout-kit';
 
 describe('Flexbox', () => {
