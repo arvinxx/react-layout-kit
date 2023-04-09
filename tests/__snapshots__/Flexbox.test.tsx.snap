@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Flexbox gap 1`] = `
+exports[`Flexbox > gap 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -27,7 +27,7 @@ exports[`Flexbox gap 1`] = `
 </div>
 `;
 
-exports[`Flexbox paddingBlock 1`] = `
+exports[`Flexbox > paddingBlock 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -53,7 +53,7 @@ exports[`Flexbox paddingBlock 1`] = `
 </div>
 `;
 
-exports[`Flexbox paddingInline 1`] = `
+exports[`Flexbox > paddingInline 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -79,7 +79,7 @@ exports[`Flexbox paddingInline 1`] = `
 </div>
 `;
 
-exports[`Flexbox 不可见 1`] = `
+exports[`Flexbox > 不可见 1`] = `
 .emotion-0 {
   display: none;
   -webkit-flex-direction: column;
@@ -103,7 +103,7 @@ exports[`Flexbox 不可见 1`] = `
 </div>
 `;
 
-exports[`Flexbox 其余方向 1`] = `
+exports[`Flexbox > 其余方向 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -129,7 +129,7 @@ exports[`Flexbox 其余方向 1`] = `
 </div>
 `;
 
-exports[`Flexbox 外部挂载 className 1`] = `
+exports[`Flexbox > 外部挂载 className 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -147,7 +147,7 @@ exports[`Flexbox 外部挂载 className 1`] = `
 </div>
 `;
 
-exports[`Flexbox 支持 as 属性 1`] = `
+exports[`Flexbox > 支持 as 属性 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -165,7 +165,7 @@ exports[`Flexbox 支持 as 属性 1`] = `
 </h3>
 `;
 
-exports[`Flexbox 横向 1`] = `
+exports[`Flexbox > 横向 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -190,7 +190,7 @@ exports[`Flexbox 横向 1`] = `
 </div>
 `;
 
-exports[`Flexbox 横向撑开 1`] = `
+exports[`Flexbox > 横向撑开 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -220,7 +220,7 @@ exports[`Flexbox 横向撑开 1`] = `
 </div>
 `;
 
-exports[`Flexbox 默认 1`] = `
+exports[`Flexbox > 默认 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
