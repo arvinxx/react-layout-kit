@@ -1,5 +1,11 @@
 # Changelog
 
+# [1.7.0](https://github.com/arvinxx/react-layout-kit/compare/v1.6.1...v1.7.0) (2023-04-27)
+
+### ✨ 新特性
+
+- 支持 ref ([05b0b14](https://github.com/arvinxx/react-layout-kit/commit/05b0b14))
+
 ## [1.6.1](https://github.com/arvinxx/react-layout-kit/compare/v1.6.0...v1.6.1) (2023-04-09)
 
 # [1.6.0](https://github.com/arvinxx/react-layout-kit/compare/v1.5.1...v1.6.0) (2023-03-28)
