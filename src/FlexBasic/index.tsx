@@ -1,7 +1,7 @@
 import { ContentDistribution, ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
 import { css, cx } from '@emotion/css';
-import { createElement, ElementType, FC, useMemo } from 'react';
+import { ElementType, createElement, forwardRef, useMemo } from 'react';
 
 /**
  * 用于创建
@@ -94,72 +94,78 @@ export interface IFlexbox {
   as?: ElementType;
 }
 
-export interface FlexBasicProps extends IFlexbox, DivProps {
+export interface FlexBasicProps extends IFlexbox, Omit<DivProps, 'ref'> {
   internalClassName?: string;
 }
 
-const FlexBasic: FC<FlexBasicProps> = ({
-  visible,
-  flex,
-  gap,
-  direction,
-  horizontal,
-  align,
-  justify,
-  distribution,
-  height,
-  width,
-  padding,
-  paddingInline,
-  paddingBlock,
-  as,
-  internalClassName,
-  className,
-  children,
-  ...props
-}) => {
-  const justifyContent = justify || distribution;
+const FlexBasic = forwardRef<any, FlexBasicProps>(
+  (
+    {
+      visible,
+      flex,
+      gap,
+      direction,
+      horizontal,
+      align,
+      justify,
+      distribution,
+      height,
+      width,
+      padding,
+      paddingInline,
+      paddingBlock,
+      as,
+      internalClassName,
+      className,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    const justifyContent = justify || distribution;
 
-  const finalWidth = useMemo(() => {
-    if (isHorizontal(direction, horizontal) && !width && isSpaceDistribution(justifyContent))
-      return '100%';
+    const finalWidth = useMemo(() => {
+      if (isHorizontal(direction, horizontal) && !width && isSpaceDistribution(justifyContent))
+        return '100%';
 
-    return getCssValue(width);
-  }, [direction, horizontal, justifyContent, width]);
+      return getCssValue(width);
+    }, [direction, horizontal, justifyContent, width]);
 
-  const Container = useMemo(() => createContainer(as || 'div'), [as]);
+    const Container = useMemo(() => createContainer(as || 'div'), [as]);
 
-  return (
-    <Container
-      {...props}
-      className={cx(
-        internalClassName,
-        css`
-          // 是否显示
-          display: ${visible === false ? 'none' : 'flex'};
+    return (
+      <Container
+        ref={ref}
+        {...props}
+        className={cx(
+          internalClassName,
+          css`
+            // 是否显示
+            display: ${visible === false ? 'none' : 'flex'};
 
-          flex: ${flex};
+            flex: ${flex};
 
-          flex-direction: ${getFlexDirection(direction, horizontal)};
-          justify-content: ${justifyContent};
-          align-items: ${align};
+            flex-direction: ${getFlexDirection(direction, horizontal)};
+            justify-content: ${justifyContent};
+            align-items: ${align};
 
-          width: ${finalWidth};
-          height: ${getCssValue(height)};
+            width: ${finalWidth};
+            height: ${getCssValue(height)};
 
-          padding: ${getCssValue(padding)};
+            padding: ${getCssValue(padding)};
 
-          padding-inline: ${getCssValue(paddingInline)};
-          padding-block: ${getCssValue(paddingBlock)};
+            padding-inline: ${getCssValue(paddingInline)};
+            padding-block: ${getCssValue(paddingBlock)};
 
-          gap: ${getCssValue(gap)};
-        `,
-        className,
-      )}
-    >
-      {children}
-    </Container>
-  );
-};
+            gap: ${getCssValue(gap)};
+          `,
+          className,
+        )}
+      >
+        {children}
+      </Container>
+    );
+  },
+);
 
 export default FlexBasic;
