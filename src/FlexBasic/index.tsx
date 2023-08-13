@@ -7,7 +7,8 @@ import { ElementType, createElement, forwardRef, useMemo } from 'react';
  * 用于创建
  * @param as
  */
-const createContainer = (as: ElementType) => (props: any) => createElement(as, props);
+const createContainer = (as: ElementType) =>
+  forwardRef((props: any, ref) => createElement(as, { ...props, ref }));
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 

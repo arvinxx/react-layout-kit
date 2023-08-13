@@ -7,16 +7,14 @@ import { getPrefix } from '@/utils';
 export type FlexboxProps = FlexBasicProps & CommonProps;
 
 export const Flexbox = forwardRef<HTMLElement, FlexboxProps>(
-  ({ className, prefixCls, children, ...props }, ref) => {
-    return (
-      <FlexBasic
-        ref={ref}
-        {...props}
-        internalClassName={`${getPrefix(prefixCls)}-flexbox`}
-        className={className}
-      >
-        {children}
-      </FlexBasic>
-    );
-  },
+  ({ className, prefixCls, children, ...props }, ref) => (
+    <FlexBasic
+      ref={ref}
+      {...props}
+      internalClassName={`${getPrefix(prefixCls)}-flexbox`}
+      className={className}
+    >
+      {children}
+    </FlexBasic>
+  ),
 );
