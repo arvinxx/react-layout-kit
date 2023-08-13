@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;1.7.1](https://github.com/arvinxx/react-layout-kit/compare/v1.7.0...v1.7.1)
+
+<sup>Released on **2023-08-13**</sup>
+
+#### 🐛 修复
+
+- Fix ref error warning.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Fix ref error warning ([f4c702c](https://github.com/arvinxx/react-layout-kit/commit/f4c702c))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 # [1.7.0](https://github.com/arvinxx/react-layout-kit/compare/v1.6.1...v1.7.0) (2023-04-27)
 
 ### ✨ 新特性
