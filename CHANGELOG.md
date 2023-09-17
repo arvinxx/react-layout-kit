@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;1.7.2](https://github.com/arvinxx/react-layout-kit/compare/v1.7.1...v1.7.2)
+
+<sup>Released on **2023-09-17**</sup>
+
+#### 🐛 修复
+
+- Justify content types.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Justify content types ([e855ac1](https://github.com/arvinxx/react-layout-kit/commit/e855ac1))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;1.7.1](https://github.com/arvinxx/react-layout-kit/compare/v1.7.0...v1.7.1)
 
 <sup>Released on **2023-08-13**</sup>
