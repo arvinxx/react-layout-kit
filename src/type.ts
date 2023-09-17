@@ -1,4 +1,4 @@
-import type { DetailedHTMLProps, HTMLAttributes } from 'react';
+import type { CSSProperties, DetailedHTMLProps, HTMLAttributes } from 'react';
 
 export type ContentPosition =
   | 'center'
@@ -8,13 +8,6 @@ export type ContentPosition =
   | 'start'
   | 'stretch'
   | 'baseline';
-
-export type ContentDistribution =
-  | 'center'
-  | 'space-around'
-  | 'space-between'
-  | 'space-evenly'
-  | 'stretch';
 
 export type FlexDirection = 'vertical' | 'vertical-reverse' | 'horizontal' | 'horizontal-reverse';
 
@@ -28,4 +21,5 @@ export interface CommonProps {
    * @title 类名前缀
    */
   prefixCls?: string;
+  style?: CSSProperties;
 }

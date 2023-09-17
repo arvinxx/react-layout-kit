@@ -1,7 +1,7 @@
-import { ContentDistribution, ContentPosition, DivProps, FlexDirection } from '@/type';
+import { ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
 import { css, cx } from '@emotion/css';
-import { ElementType, createElement, forwardRef, useMemo } from 'react';
+import { CSSProperties, ElementType, createElement, forwardRef, useMemo } from 'react';
 
 /**
  * 用于创建
@@ -36,13 +36,13 @@ export interface IFlexbox {
    * @enum ["start", "end", "center", "between", "around"]
    * @enumNames ["靠起始位置", "靠结束位置", "居中", "两端对齐", "环绕"]
    */
-  distribution?: ContentDistribution;
+  distribution?: CSSProperties['justifyContent'];
   /**
    * @title 主轴对齐方式
    * @enum ["start", "end", "center", "between", "around"]
    * @enumNames ["靠起始位置", "靠结束位置", "居中", "两端对齐", "环绕"]
    */
-  justify?: ContentDistribution;
+  justify?: CSSProperties['justifyContent'];
   /**
    * @title 交叉轴对齐方式
    * @enum ["start", "end", "center", "baseline", "stretch"]
