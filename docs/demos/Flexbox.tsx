@@ -4,7 +4,9 @@ import { Center, Flexbox } from 'react-layout-kit';
 const Block: FC<PropsWithChildren> = ({ children }) => {
   return (
     <Center
-      style={{ width: 40, height: 40, borderRadius: 8, background: 'cadetblue', color: 'white' }}
+      width={40}
+      height={40}
+      style={{ borderRadius: 8, background: 'cadetblue', color: 'white' }}
     >
       {children}
     </Center>
