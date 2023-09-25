@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;1.7.4](https://github.com/arvinxx/react-layout-kit/compare/v1.7.3...v1.7.4)
+
+<sup>Released on **2023-09-25**</sup>
+
+#### 🐛 修复
+
+- Fix flexbox types.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Fix flexbox types ([2b11d52](https://github.com/arvinxx/react-layout-kit/commit/2b11d52))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;1.7.3](https://github.com/arvinxx/react-layout-kit/compare/v1.7.2...v1.7.3)
 
 <sup>Released on **2023-09-24**</sup>
