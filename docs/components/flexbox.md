@@ -29,19 +29,19 @@ group: 一维布局
 
 ## API
 
-| 属性          | 说明             | 类型                                                                    | 默认值     |
-| ------------- | ---------------- | ----------------------------------------------------------------------- | ---------- |
-| horizontal    | 是否横向         | boolean                                                                 | false      |
-| direction     | 主轴方向         | `row` &#124; `row-reverse` &#124; `column` &#124; `column-reverse`      | `row`      |
-| distribution  | 内容分布         | `start` &#124; `end` &#124; `center` &#124; `between` &#124; `around`   | -          |
-| justify       | 主轴对齐方式     | `start` &#124; `end` &#124; `center` &#124; `between` &#124; `around`   | -          |
-| align         | 交叉轴对齐方式   | `start` &#124; `end` &#124; `center` &#124; `baseline` &#124; `stretch` | `stretch`  |
-| gap           | 主轴方向上的间距 | number &#124; string                                                    | 0          |
-| width         | 宽度             | number &#124; string                                                    | `auto`     |
-| height        | 高度             | number &#124; string                                                    | `auto`     |
-| padding       | 内边距           | number &#124; string &#124; [number, number?, number?, number?]         | 0          |
-| paddingInline | 内联内边距       | number &#124; string                                                    | -          |
-| paddingBlock  | 块内边距         | number &#124; string                                                    | -          |
-| flex          | flex 值          | number &#124; string                                                    | `0 1 auto` |
-| visible       | 是否显示         | boolean                                                                 | true       |
-| as            | 元素类型         | string &#124; React.ComponentType                                       | `div`      |
+| 属性          | 说明             | 类型                                                                                 | 默认值       |
+| ------------- | ---------------- | ------------------------------------------------------------------------------------ | ------------ |
+| horizontal    | 是否横向         | boolean                                                                              | false        |
+| direction     | 主轴方向         | `vertical` &#124; `vertical-reverse` &#124; `horizontal` &#124; `horizontal-reverse` | `horizontal` |
+| distribution  | 内容分布         | `start` &#124; `end` &#124; `center` &#124; `between` &#124; `around`                | -            |
+| justify       | 主轴对齐方式     | `start` &#124; `end` &#124; `center` &#124; `between` &#124; `around`                | -            |
+| align         | 交叉轴对齐方式   | `start` &#124; `end` &#124; `center` &#124; `baseline` &#124; `stretch`              | `stretch`    |
+| gap           | 主轴方向上的间距 | number &#124; string                                                                 | 0            |
+| width         | 宽度             | number &#124; string                                                                 | `auto`       |
+| height        | 高度             | number &#124; string                                                                 | `auto`       |
+| padding       | 内边距           | number &#124; string &#124; [number, number?, number?, number?]                      | 0            |
+| paddingInline | 内联内边距       | number &#124; string                                                                 | -            |
+| paddingBlock  | 块内边距         | number &#124; string                                                                 | -            |
+| flex          | flex 值          | number &#124; string                                                                 | `0 1 auto`   |
+| visible       | 是否显示         | boolean                                                                              | true         |
+| as            | 元素类型         | string &#124; React.ComponentType                                                    | `div`        |

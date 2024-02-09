@@ -26,9 +26,9 @@ export interface IFlexbox {
   // 基础 api
   /**
    * @title 主轴方向
-   * @enum ["row", "row-reverse", "column", "column-reverse"]
-   * @enumNames ["水平从左到右", "水平从右到左", "垂直从上到下", "垂直从下到上"]
-   * @default "row"
+   * @enum ["vertical", "vertical-reverse", "horizontal", "horizontal-reverse"]
+   * @enumNames ["垂直从上到下", "垂直从下到上","水平从左到右", "水平从右到左"]
+   * @default "horizontal"
    */
   direction?: FlexDirection;
   /**
