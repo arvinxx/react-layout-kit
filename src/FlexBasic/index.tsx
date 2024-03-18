@@ -37,6 +37,7 @@ export interface IFlexbox {
    * @enumNames ["靠起始位置", "靠结束位置", "居中", "两端对齐", "环绕"]
    */
   distribution?: CSSProperties['justifyContent'];
+  wrap?: CSSProperties['flexWrap'];
   /**
    * @title 主轴对齐方式
    * @enum ["start", "end", "center", "between", "around"]
@@ -54,7 +55,7 @@ export interface IFlexbox {
    * @title 主轴方向上的间距
    * @default 0
    */
-  gap?: CommonSpaceNumber | number;
+  gap?: CommonSpaceNumber | number | string;
   /**
    * @title 宽度
    * @default "auto"
@@ -119,6 +120,7 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
       internalClassName,
       className,
       children,
+      wrap,
       ...props
     },
     ref,
@@ -147,6 +149,8 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
             flex: ${flex};
 
             flex-direction: ${getFlexDirection(direction, horizontal)};
+            flex-wrap: ${wrap};
+
             justify-content: ${justifyContent};
             align-items: ${align};
 
