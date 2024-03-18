@@ -1,3 +1,5 @@
+'use client';
+
 import FlexBasic, { FlexBasicProps } from '@/FlexBasic';
 import { CommonProps } from '@/type';
 import { getPrefix } from '@/utils';
