@@ -1,5 +1,38 @@
 # Changelog
 
+## [Version&nbsp;1.8.0](https://github.com/arvinxx/react-layout-kit/compare/v1.7.4...v1.8.0)
+
+<sup>Released on **2024-03-18**</sup>
+
+#### ✨ 新特性
+
+- Support rsc.
+
+#### 🐛 修复
+
+- Fix docs and code about direction type desc.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Support rsc ([dc3faa5](https://github.com/arvinxx/react-layout-kit/commit/dc3faa5))
+
+#### What's fixed
+
+- Fix docs and code about direction type desc, closes [#3](https://github.com/arvinxx/react-layout-kit/issues/3) ([89d2259](https://github.com/arvinxx/react-layout-kit/commit/89d2259))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;1.7.4](https://github.com/arvinxx/react-layout-kit/compare/v1.7.3...v1.7.4)
 
 <sup>Released on **2023-09-25**</sup>
