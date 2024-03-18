@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;1.9.0](https://github.com/arvinxx/react-layout-kit/compare/v1.8.0...v1.9.0)
+
+<sup>Released on **2024-03-18**</sup>
+
+#### ✨ 新特性
+
+- Support flex wrap.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Support flex wrap ([955adba](https://github.com/arvinxx/react-layout-kit/commit/955adba))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;1.8.0](https://github.com/arvinxx/react-layout-kit/compare/v1.7.4...v1.8.0)
 
 <sup>Released on **2024-03-18**</sup>
