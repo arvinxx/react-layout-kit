@@ -25,18 +25,32 @@ describe('Flexbox', () => {
     expect(res.container).toMatchSnapshot();
   });
 
-  it('gap', () => {
-    const res = render(
-      <Flexbox data-testid={'container'} gap={2}>
-        <div>1</div>
-        <div>2</div>
-      </Flexbox>,
-    );
-    const container = res.container.firstChild;
+  describe('Props gap', () => {
+    it('number', () => {
+      const res = render(
+        <Flexbox data-testid={'container'} gap={2}>
+          <div>1</div>
+          <div>2</div>
+        </Flexbox>,
+      );
+      const container = res.container.firstChild;
 
-    expect(container).toHaveStyle('display:flex');
-    expect(container).toHaveStyle('gap:2px');
-    expect(res.container).toMatchSnapshot();
+      expect(container).toHaveStyle('display:flex');
+      expect(container).toHaveStyle('gap:2px');
+      expect(res.container).toMatchSnapshot();
+    });
+    it('string', () => {
+      const res = render(
+        <Flexbox data-testid={'container'} gap="3">
+          <div>1</div>
+          <div>2</div>
+        </Flexbox>,
+      );
+      const container = res.container.firstChild;
+
+      expect(container).toHaveStyle('display:flex');
+      expect(container).toHaveStyle('gap:3px');
+    });
   });
 
   it('不可见', async () => {
