@@ -32,5 +32,16 @@ export const isHorizontal = (direction?: FlexDirection, isHorizontal?: boolean) 
 export const isVertical = (direction?: FlexDirection, isHorizontal?: boolean) =>
   getFlexDirection(direction, isHorizontal) === 'column';
 
-export const getCssValue = (value: string | number | undefined) =>
-  typeof value === 'number' ? `${value}px` : value;
+const isNumber = (value: any) => {
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    return true;
+  }
+
+  return Number.isFinite(Number(value));
+};
+
+export const getCssValue = (value: string | number | undefined) => {
+  if (isNumber(value)) return `${Number(value)}px`;
+
+  return value;
+};
