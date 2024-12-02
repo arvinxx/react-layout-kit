@@ -22,4 +22,8 @@ const Center = forwardRef<HTMLElement, CenterProps & CommonProps>(
   ),
 );
 
+if (process.env.NODE_ENV !== 'production') {
+  Center.displayName = 'Center';
+}
+
 export default Center;
