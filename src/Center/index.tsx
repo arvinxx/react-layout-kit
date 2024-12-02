@@ -22,4 +22,6 @@ const Center = forwardRef<HTMLElement, CenterProps & CommonProps>(
   ),
 );
 
+Center.displayName = 'Center';
+
 export default Center;

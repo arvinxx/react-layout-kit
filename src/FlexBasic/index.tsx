@@ -1,14 +1,7 @@
 import { ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
 import { css, cx } from '@emotion/css';
-import { CSSProperties, ElementType, createElement, forwardRef, useMemo } from 'react';
-
-/**
- * 用于创建
- * @param as
- */
-const createContainer = (as: ElementType) =>
-  forwardRef((props: any, ref) => createElement(as, { ...props, ref }));
+import { CSSProperties, ElementType, forwardRef, useMemo } from 'react';
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
@@ -116,7 +109,7 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
       padding,
       paddingInline,
       paddingBlock,
-      as,
+      as: Container = 'div',
       internalClassName,
       className,
       children,
@@ -133,8 +126,6 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
 
       return getCssValue(width);
     }, [direction, horizontal, justifyContent, width]);
-
-    const Container = useMemo(() => createContainer(as || 'div'), [as]);
 
     return (
       <Container
@@ -172,5 +163,7 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
     );
   },
 );
+
+FlexBasic.displayName = 'FlexBasic';
 
 export default FlexBasic;
