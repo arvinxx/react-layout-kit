@@ -164,8 +164,6 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
   },
 );
 
-if (process.env.NODE_ENV !== 'production') {
-  FlexBasic.displayName = 'FlexBasic';
-}
+FlexBasic.displayName = 'FlexBasic';
 
 export default FlexBasic;

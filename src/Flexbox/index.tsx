@@ -21,8 +21,6 @@ const Flexbox = forwardRef<HTMLElement, FlexboxProps>(
   ),
 );
 
-if (process.env.NODE_ENV !== 'production') {
-  Flexbox.displayName = 'Flexbox';
-}
+Flexbox.displayName = 'Flexbox';
 
 export { Flexbox };
