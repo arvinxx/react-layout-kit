@@ -99,6 +99,14 @@ describe('Flexbox', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('行级弹性盒子', () => {
+    const res = render(<Flexbox inline />);
+    const container = res.container.firstChild;
+
+    expect(container).toHaveStyle('display:inline-flex');
+    expect(res.container).toMatchSnapshot();
+  });
+
   it('paddingInline', () => {
     const res = render(
       <Flexbox horizontal paddingInline={24}>

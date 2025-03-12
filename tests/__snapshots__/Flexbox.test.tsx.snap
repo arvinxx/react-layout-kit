@@ -220,6 +220,24 @@ exports[`Flexbox > 横向撑开 1`] = `
 </div>
 `;
 
+exports[`Flexbox > 行级弹性盒子 1`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div>
+  <div
+    class="layoutkit-flexbox emotion-0"
+  />
+</div>
+`;
+
 exports[`Flexbox > 默认 1`] = `
 .emotion-0 {
   display: -webkit-box;
