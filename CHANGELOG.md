@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;1.9.2](https://github.com/arvinxx/react-layout-kit/compare/v1.9.1...v1.9.2)
+
+<sup>Released on **2025-07-18**</sup>
+
+#### 🐛 修复
+
+- Fix css rerender.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Fix css rerender, closes [#8](https://github.com/arvinxx/react-layout-kit/issues/8) ([9f5af32](https://github.com/arvinxx/react-layout-kit/commit/9f5af32))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;1.9.2-beta.1](https://github.com/arvinxx/react-layout-kit/compare/v1.9.1...v1.9.2-beta.1)
 
 <sup>Released on **2025-07-18**</sup>
