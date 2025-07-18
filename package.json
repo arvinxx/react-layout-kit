@@ -24,8 +24,7 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "es",
-    "lib"
+    "dist"
   ],
   "scripts": {
     "build": "father build",
