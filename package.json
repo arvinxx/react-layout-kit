@@ -17,10 +17,12 @@
   },
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",
-  "sideEffects": false,
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "lib/index.d.ts",
+  "sideEffects": [
+    "dist/styles.css"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "es",
     "lib"

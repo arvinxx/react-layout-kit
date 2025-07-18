@@ -1,0 +1,114 @@
+/* React Layout Kit - Pure CSS Implementation */
+.layoutkit-flexbox {
+  display: flex;
+  /* CSS 变量用于动态值 */
+  width: var(--layout-width, auto);
+  height: var(--layout-height, auto);
+  padding: var(--layout-padding, 0);
+  padding-inline: var(--layout-padding-inline, var(--layout-padding, 0));
+  padding-block: var(--layout-padding-block, var(--layout-padding, 0));
+  gap: var(--layout-gap, 0);
+  flex: var(--layout-flex, initial);
+}
+
+/* 显示/隐藏 */
+.layoutkit-flexbox--hidden {
+  display: none;
+}
+
+/* 主轴方向 */
+.layoutkit-flexbox--vertical {
+  flex-direction: column;
+}
+
+.layoutkit-flexbox--vertical-reverse {
+  flex-direction: column-reverse;
+}
+
+.layoutkit-flexbox--horizontal {
+  flex-direction: row;
+}
+
+.layoutkit-flexbox--horizontal-reverse {
+  flex-direction: row-reverse;
+}
+
+/* 主轴对齐方式 */
+.layoutkit-flexbox--justify-start {
+  justify-content: flex-start;
+}
+
+.layoutkit-flexbox--justify-end {
+  justify-content: flex-end;
+}
+
+.layoutkit-flexbox--justify-center {
+  justify-content: center;
+}
+
+.layoutkit-flexbox--justify-between {
+  justify-content: space-between;
+}
+
+.layoutkit-flexbox--justify-around {
+  justify-content: space-around;
+}
+
+.layoutkit-flexbox--justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* 交叉轴对齐方式 */
+.layoutkit-flexbox--align-start {
+  align-items: flex-start;
+}
+
+.layoutkit-flexbox--align-end {
+  align-items: flex-end;
+}
+
+.layoutkit-flexbox--align-center {
+  align-items: center;
+}
+
+.layoutkit-flexbox--align-baseline {
+  align-items: baseline;
+}
+
+.layoutkit-flexbox--align-stretch {
+  align-items: stretch;
+}
+
+/* 换行 */
+.layoutkit-flexbox--wrap {
+  flex-wrap: wrap;
+}
+
+.layoutkit-flexbox--nowrap {
+  flex-wrap: nowrap;
+}
+
+.layoutkit-flexbox--wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+/* 特殊布局 - Center 组件 */
+.layoutkit-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Center 组件的横向模式 */
+.layoutkit-center--horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+/* 空间分布时的宽度处理 */
+.layoutkit-flexbox--space-distribution {
+  width: 100%;
+}
