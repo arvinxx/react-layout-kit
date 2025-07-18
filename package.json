@@ -1,6 +1,6 @@
 {
   "name": "react-layout-kit",
-  "version": "1.9.1",
+  "version": "1.9.2-beta.1",
   "description": "a npm develop template",
   "keywords": [
     "react",
@@ -95,7 +95,7 @@
     "semantic-release-config-gitmoji": "^1",
     "stylelint": "^14",
     "typescript": "^5",
-    "vitest": "latest"
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "react": ">=18"
