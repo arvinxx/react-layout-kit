@@ -127,37 +127,47 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
       return getCssValue(width);
     }, [direction, horizontal, justifyContent, width]);
 
+    const funcClassName = useMemo(
+      () => css`
+        display: ${visible === false ? 'none' : 'flex'};
+
+        flex: ${flex};
+
+        flex-direction: ${getFlexDirection(direction, horizontal)};
+        flex-wrap: ${wrap};
+
+        justify-content: ${justifyContent};
+        align-items: ${align};
+
+        width: ${finalWidth};
+        height: ${getCssValue(height)};
+
+        padding: ${getCssValue(padding)};
+
+        padding-inline: ${getCssValue(paddingInline)};
+        padding-block: ${getCssValue(paddingBlock)};
+
+        gap: ${getCssValue(gap)};
+      `,
+      [
+        visible,
+        flex,
+        direction,
+        horizontal,
+        wrap,
+        justifyContent,
+        align,
+        finalWidth,
+        height,
+        padding,
+        paddingInline,
+        paddingBlock,
+        gap,
+      ],
+    );
+
     return (
-      <Container
-        ref={ref}
-        {...props}
-        className={cx(
-          internalClassName,
-          css`
-            // 是否显示
-            display: ${visible === false ? 'none' : 'flex'};
-
-            flex: ${flex};
-
-            flex-direction: ${getFlexDirection(direction, horizontal)};
-            flex-wrap: ${wrap};
-
-            justify-content: ${justifyContent};
-            align-items: ${align};
-
-            width: ${finalWidth};
-            height: ${getCssValue(height)};
-
-            padding: ${getCssValue(padding)};
-
-            padding-inline: ${getCssValue(paddingInline)};
-            padding-block: ${getCssValue(paddingBlock)};
-
-            gap: ${getCssValue(gap)};
-          `,
-          className,
-        )}
-      >
+      <Container ref={ref} {...props} className={cx(internalClassName, funcClassName, className)}>
         {children}
       </Container>
     );
