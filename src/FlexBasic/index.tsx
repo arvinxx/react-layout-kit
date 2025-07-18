@@ -87,6 +87,12 @@ export interface IFlexbox {
    * @default "div"
    */
   as?: ElementType;
+  /**
+   * @title 是否内联
+   * @default false
+   * @description 是否内联布局
+   */
+  inline?: boolean;
 }
 
 export interface FlexBasicProps extends IFlexbox, Omit<DivProps, 'ref'> {
@@ -114,6 +120,7 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
       className,
       children,
       wrap,
+      inline,
       ...props
     },
     ref,
@@ -127,9 +134,14 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
       return getCssValue(width);
     }, [direction, horizontal, justifyContent, width]);
 
+    const finalDisplay = useMemo(() => {
+      if (visible === false) return 'none';
+      return inline ? 'inline-flex' : 'flex';
+    }, [inline, visible]);
+
     const funcClassName = useMemo(
       () => css`
-        display: ${visible === false ? 'none' : 'flex'};
+        display: ${finalDisplay};
 
         flex: ${flex};
 
@@ -163,6 +175,7 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
         paddingInline,
         paddingBlock,
         gap,
+        finalDisplay,
       ],
     );
 
