@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;2.0.0-alpha.2](https://github.com/arvinxx/react-layout-kit/compare/v2.0.0-alpha.1...v2.0.0-alpha.2)
+
+<sup>Released on **2025-07-18**</sup>
+
+#### 🐛 修复
+
+- Fix build.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Fix build ([2641c3c](https://github.com/arvinxx/react-layout-kit/commit/2641c3c))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;2.0.0-alpha.1](https://github.com/arvinxx/react-layout-kit/compare/v1.9.2...v2.0.0-alpha.1)
 
 <sup>Released on **2025-07-18**</sup>
