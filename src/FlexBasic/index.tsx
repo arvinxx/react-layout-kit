@@ -1,12 +1,12 @@
-// src/FlexBasic/index.tsx
-
 'use client';
+
+import { css, cx } from '@emotion/css';
+import { CSSProperties, ElementType, forwardRef, useMemo } from 'react';
 
 import { ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
-import { CSSProperties, ElementType, forwardRef, useMemo } from 'react';
-import '../styles.css'; // 引入纯 CSS 文件
 
+// --- 类型定义 (与您原始代码一致) ---
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
 export interface IFlexbox {
@@ -31,84 +31,75 @@ export interface FlexBasicProps extends IFlexbox, Omit<DivProps, 'ref'> {
   internalClassName?: string;
 }
 
-// 生成 CSS 类名的工具函数
-const generateFlexboxClasses = (
-  direction: FlexDirection | undefined,
-  horizontal: boolean | undefined,
-  justify: CSSProperties['justifyContent'],
-  align: ContentPosition | undefined,
-  wrap: CSSProperties['flexWrap'],
-): string => {
-  const classes = ['layoutkit-flexbox'];
+// --- 高性能的静态样式定义 ---
+// 使用 Emotion 在模块加载时创建一次性的、可复用的原子化 CSS 类
+const styles = {
+  // 基础样式
+  flex: css`
+    display: flex;
+    box-sizing: border-box;
+    position: relative; /* 添加 position relative, 增强作为容器的通用性 */
 
+    flex-direction: column;
+  `,
   // 主轴方向
-  const flexDirection = getFlexDirection(direction, horizontal);
-  switch (flexDirection) {
-    case 'column':
-      classes.push('layoutkit-flexbox--vertical');
-      break;
-    case 'column-reverse':
-      classes.push('layoutkit-flexbox--vertical-reverse');
-      break;
-    case 'row':
-      classes.push('layoutkit-flexbox--horizontal');
-      break;
-    case 'row-reverse':
-      classes.push('layoutkit-flexbox--horizontal-reverse');
-      break;
-  }
-
-  // 主轴对齐方式
-  if (justify) {
-    const justifyMap: Record<string, string> = {
-      'flex-start': 'start',
-      'flex-end': 'end',
-      center: 'center',
-      'space-between': 'between',
-      'space-around': 'around',
-      'space-evenly': 'evenly',
-      start: 'start',
-      end: 'end',
-      between: 'between',
-      around: 'around',
-    };
-    const justifyClass = justifyMap[justify];
-    if (justifyClass) {
-      classes.push(`layoutkit-flexbox--justify-${justifyClass}`);
-    }
-  }
-
-  // 交叉轴对齐方式
-  if (align) {
-    const alignMap: Record<string, string> = {
-      'flex-start': 'start',
-      'flex-end': 'end',
-      center: 'center',
-      baseline: 'baseline',
-      stretch: 'stretch',
-      start: 'start',
-      end: 'end',
-    };
-    const alignClass = alignMap[align];
-    if (alignClass) {
-      classes.push(`layoutkit-flexbox--align-${alignClass}`);
-    }
-  }
-
+  'direction-horizontal': css`
+    flex-direction: row;
+  `,
+  'direction-horizontal-reverse': css`
+    flex-direction: row-reverse;
+  `,
+  'direction-vertical': css`
+    flex-direction: column;
+  `,
+  'direction-vertical-reverse': css`
+    flex-direction: column-reverse;
+  `,
+  // 主轴对齐
+  'justify-start': css`
+    justify-content: flex-start;
+  `,
+  'justify-end': css`
+    justify-content: flex-end;
+  `,
+  'justify-center': css`
+    justify-content: center;
+  `,
+  'justify-between': css`
+    justify-content: space-between;
+  `,
+  'justify-around': css`
+    justify-content: space-around;
+  `,
+  'justify-evenly': css`
+    justify-content: space-evenly;
+  `,
+  // 交叉轴对齐
+  'align-start': css`
+    align-items: flex-start;
+  `,
+  'align-end': css`
+    align-items: flex-end;
+  `,
+  'align-center': css`
+    align-items: center;
+  `,
+  'align-stretch': css`
+    align-items: stretch;
+  `,
+  'align-baseline': css`
+    align-items: baseline;
+  `,
   // 换行
-  if (wrap) {
-    const wrapMap: Record<string, string> = {
-      wrap: 'wrap',
-      nowrap: 'nowrap',
-      'wrap-reverse': 'wrap-reverse',
-    };
-    const wrapClass = wrapMap[wrap];
-    if (wrapClass) {
-      classes.push(`layoutkit-flexbox--${wrapClass}`);
-    }
-  }
-
-  return classes.join(' ');
+  'wrap-wrap': css`
+    flex-wrap: wrap;
+  `,
+  'wrap-nowrap': css`
+    flex-wrap: nowrap;
+  `,
+  'wrap-reverse': css`
+    flex-wrap: wrap-reverse;
+  `,
 };
 
 const FlexBasic = forwardRef<any, FlexBasicProps>(
@@ -132,64 +123,112 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
       className,
       children,
       wrap,
+      style, // 提取 style prop
       ...props
     },
     ref,
   ) => {
     const justifyContent = justify || distribution;
 
-    const cssClasses = useMemo(() => {
-      return generateFlexboxClasses(direction, horizontal, justifyContent, align, wrap);
+    // 组合静态 ClassName
+    const staticClassName = useMemo(() => {
+      const classNames = [];
+      const finalDirection = getFlexDirection(direction, horizontal);
+
+      // 映射 direction
+      if (finalDirection === 'row') classNames.push(styles['direction-horizontal']);
+      if (finalDirection === 'row-reverse') classNames.push(styles['direction-horizontal-reverse']);
+      if (finalDirection === 'column') classNames.push(styles['direction-vertical']);
+      if (finalDirection === 'column-reverse')
+        classNames.push(styles['direction-vertical-reverse']);
+
+      // 映射 justify-content
+      const justifyMap: Record<string, string> = {
+        start: styles['justify-start'],
+        end: styles['justify-end'],
+        'flex-start': styles['justify-start'],
+        'flex-end': styles['justify-end'],
+        center: styles['justify-center'],
+        between: styles['justify-between'],
+        around: styles['justify-around'],
+        evenly: styles['justify-evenly'],
+        'space-between': styles['justify-between'],
+        'space-around': styles['justify-around'],
+        'space-evenly': styles['justify-evenly'],
+      };
+      if (justifyContent && justifyMap[justifyContent]) {
+        classNames.push(justifyMap[justifyContent]);
+      }
+
+      // 映射 align-items
+      const alignMap: Record<string, string> = {
+        start: styles['align-start'],
+        end: styles['align-end'],
+        'flex-start': styles['align-start'],
+        'flex-end': styles['align-end'],
+        center: styles['align-center'],
+        stretch: styles['align-stretch'],
+        baseline: styles['align-baseline'],
+      };
+      if (align && alignMap[align]) {
+        classNames.push(alignMap[align]);
+      }
+
+      // 映射 wrap
+      const wrapMap: Record<string, string> = {
+        wrap: styles['wrap-wrap'],
+        nowrap: styles['wrap-nowrap'],
+        'wrap-reverse': styles['wrap-reverse'],
+      };
+      if (wrap && wrapMap[wrap]) {
+        classNames.push(wrapMap[wrap]);
+      }
+
+      return cx(classNames);
     }, [direction, horizontal, justifyContent, align, wrap]);
 
-    const dynamicStyles = useMemo((): CSSProperties => {
-      const widthValue =
+    // 计算动态的 inline-style
+    const dynamicStyle = useMemo((): CSSProperties => {
+      // 原始逻辑：当 space-distribution 且 horizontal 时，宽度为 100%
+      const finalWidth =
         isHorizontal(direction, horizontal) && !width && isSpaceDistribution(justifyContent)
           ? '100%'
           : getCssValue(width);
 
-      const styles: CSSProperties & Record<string, any> = {
-        '--layoutkit-width': widthValue,
-        '--layoutkit-height': getCssValue(height),
-        '--layoutkit-padding': getCssValue(padding),
-        '--layoutkit-padding-inline': getCssValue(paddingInline),
-        '--layoutkit-padding-block': getCssValue(paddingBlock),
-        '--layoutkit-gap': getCssValue(gap),
-        '--layoutkit-flex': typeof flex === 'number' ? flex.toString() : flex,
+      return {
+        flex: flex,
+        gap: getCssValue(gap),
+        width: finalWidth,
+        height: getCssValue(height),
+        padding: getCssValue(padding),
+        paddingInline: getCssValue(paddingInline),
+        paddingBlock: getCssValue(paddingBlock),
+        ...style, // 合并外部传入的 style
       };
-
-      Object.keys(styles).forEach((key) => {
-        if (styles[key] === undefined || styles[key] === null) {
-          delete styles[key];
-        }
-      });
-
-      return styles;
     }, [
+      flex,
+      gap,
       direction,
       horizontal,
-      justifyContent,
       width,
       height,
       padding,
       paddingInline,
       paddingBlock,
-      gap,
-      flex,
+      justifyContent,
+      style,
     ]);
 
     if (!visible) {
       return null;
     }
 
-    const finalClassName = [internalClassName, cssClasses, className].filter(Boolean).join(' ');
-
     return (
       <Container
         ref={ref}
         {...props}
-        className={finalClassName}
-        style={{ ...dynamicStyles, ...props.style }}
+        className={cx(styles.flex, staticClassName, internalClassName, className)}
+        style={dynamicStyle}
       >
         {children}
       </Container>
