@@ -1,3 +1,5 @@
+// src/Center/index.tsx
+
 'use client';
 
 import FlexBasic, { FlexBasicProps } from '@/FlexBasic';
@@ -5,37 +7,22 @@ import { CommonProps } from '@/type';
 import { getPrefix } from '@/utils';
 import { forwardRef } from 'react';
 
-export type CenterProps = Omit<
-  FlexBasicProps,
-  'distribution' | 'direction' | 'align' | 'justify'
-> & {
-  /**
-   * @title 是否横向居中
-   * @description 当为 true 时，使用 row 方向；默认为 column 方向
-   */
-  horizontal?: boolean;
-};
+export type CenterProps = Omit<FlexBasicProps, 'distribution' | 'justify' | 'align'>;
 
 const Center = forwardRef<HTMLElement, CenterProps & CommonProps>(
-  ({ children, className, prefixCls, horizontal, ...res }, ref) => {
-    // 使用专门的 center 类名，避免复杂的 prop 组合
-    const centerClassName = horizontal ? 'layoutkit-center--horizontal' : 'layoutkit-center';
-
-    return (
-      <FlexBasic
-        ref={ref}
-        internalClassName={`${getPrefix(prefixCls)}-center ${centerClassName}`}
-        className={className}
-        {...res}
-        // 移除这些 props，让 CSS 类来处理
-        align={undefined}
-        justify={undefined}
-        direction={undefined}
-      >
-        {children}
-      </FlexBasic>
-    );
-  },
+  ({ children, className, prefixCls, ...res }, ref) => (
+    <FlexBasic
+      ref={ref}
+      // 添加 .layoutkit-center 以应用 JSS 和 CSS 中的居中样式
+      internalClassName={`${getPrefix(prefixCls)}-center`}
+      className={className}
+      {...res}
+      align={'center'}
+      justify={'center'}
+    >
+      {children}
+    </FlexBasic>
+  ),
 );
 
 Center.displayName = 'Center';

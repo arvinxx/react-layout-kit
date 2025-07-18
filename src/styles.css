@@ -1,22 +1,22 @@
-/* React Layout Kit - Pure CSS Implementation */
 .layoutkit-flexbox {
   display: flex;
-  /* CSS 变量用于动态值 */
-  width: var(--layout-width, auto);
-  height: var(--layout-height, auto);
-  padding: var(--layout-padding, 0);
-  padding-inline: var(--layout-padding-inline, var(--layout-padding, 0));
-  padding-block: var(--layout-padding-block, var(--layout-padding, 0));
-  gap: var(--layout-gap, 0);
-  flex: var(--layout-flex, initial);
+  box-sizing: border-box;
+
+  /* 使用带前缀的 CSS 变量，并提供合理的默认值 */
+  width: var(--layoutkit-width, auto);
+  height: var(--layoutkit-height, auto);
+  padding: var(--layoutkit-padding, 0);
+
+  /* Fallback 继承 --layoutkit-padding 的值 */
+  padding-inline: var(--layoutkit-padding-inline, var(--layoutkit-padding));
+  padding-block: var(--layoutkit-padding-block, var(--layoutkit-padding));
+  gap: var(--layoutkit-gap, 0);
+
+  /* 确保 flex 默认行为与原始组件一致 */
+  flex: var(--layoutkit-flex, 0 1 auto);
 }
 
-/* 显示/隐藏 */
-.layoutkit-flexbox--hidden {
-  display: none;
-}
-
-/* 主轴方向 */
+/* --- 主轴方向 --- */
 .layoutkit-flexbox--vertical {
   flex-direction: column;
 }
@@ -33,7 +33,7 @@
   flex-direction: row-reverse;
 }
 
-/* 主轴对齐方式 */
+/* --- 主轴对齐方式 --- */
 .layoutkit-flexbox--justify-start {
   justify-content: flex-start;
 }
@@ -58,7 +58,7 @@
   justify-content: space-evenly;
 }
 
-/* 交叉轴对齐方式 */
+/* --- 交叉轴对齐方式 --- */
 .layoutkit-flexbox--align-start {
   align-items: flex-start;
 }
@@ -79,7 +79,7 @@
   align-items: stretch;
 }
 
-/* 换行 */
+/* --- 换行 --- */
 .layoutkit-flexbox--wrap {
   flex-wrap: wrap;
 }
@@ -92,23 +92,10 @@
   flex-wrap: wrap-reverse;
 }
 
-/* 特殊布局 - Center 组件 */
+/* --- Center 组件的快捷样式 --- */
+
+/* Center 组件会同时拥有 .layoutkit-flexbox 和 .layoutkit-center 两个类 */
 .layoutkit-center {
-  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-}
-
-/* Center 组件的横向模式 */
-.layoutkit-center--horizontal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-
-/* 空间分布时的宽度处理 */
-.layoutkit-flexbox--space-distribution {
-  width: 100%;
 }
