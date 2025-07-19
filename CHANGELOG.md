@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;2.0.0-alpha.6](https://github.com/arvinxx/react-layout-kit/compare/v2.0.0-alpha.5...v2.0.0-alpha.6)
+
+<sup>Released on **2025-07-19**</sup>
+
+#### 🐛 修复
+
+- Try again memo.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Try again memo ([3b4dd0f](https://github.com/arvinxx/react-layout-kit/commit/3b4dd0f))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;2.0.0-alpha.5](https://github.com/arvinxx/react-layout-kit/compare/v2.0.0-alpha.4...v2.0.0-alpha.5)
 
 <sup>Released on **2025-07-19**</sup>
