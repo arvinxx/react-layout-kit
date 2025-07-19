@@ -18,7 +18,7 @@
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",
   "sideEffects": [
-    "dist/styles.css"
+    "*/*.css"
   ],
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -60,8 +60,7 @@
     ]
   },
   "dependencies": {
-    "@babel/runtime": "^7",
-    "@emotion/css": "^11"
+    "@babel/runtime": "^7"
   },
   "devDependencies": {
     "@commitlint/cli": "^17",

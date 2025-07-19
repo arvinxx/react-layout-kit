@@ -1,5 +1,3 @@
-// src/Center/index.tsx
-
 'use client';
 
 import FlexBasic, { FlexBasicProps } from '@/FlexBasic';

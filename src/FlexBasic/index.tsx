@@ -1,7 +1,7 @@
 'use client';
 
-import { css, cx } from '@emotion/css';
 import { CSSProperties, ElementType, forwardRef, useMemo } from 'react';
+import './index.css';
 
 import { ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
@@ -31,76 +31,35 @@ export interface FlexBasicProps extends IFlexbox, Omit<DivProps, 'ref'> {
   internalClassName?: string;
 }
 
-// --- 高性能的静态样式定义 ---
-// 使用 Emotion 在模块加载时创建一次性的、可复用的原子化 CSS 类
-const styles = {
-  // 基础样式
-  flex: css`
-    display: flex;
-    box-sizing: border-box;
-    position: relative; /* 添加 position relative, 增强作为容器的通用性 */
+// 静态 CSS 类名前缀
+const prefix = 'rlk';
 
-    flex-direction: column;
-  `,
+// 与原来的 Emotion 样式一一对应的纯 CSS 类名
+const classes = {
+  flex: `${prefix}-flex`,
   // 主轴方向
-  'direction-horizontal': css`
-    flex-direction: row;
-  `,
-  'direction-horizontal-reverse': css`
-    flex-direction: row-reverse;
-  `,
-  'direction-vertical': css`
-    flex-direction: column;
-  `,
-  'direction-vertical-reverse': css`
-    flex-direction: column-reverse;
-  `,
+  'direction-horizontal': `${prefix}-direction-horizontal`,
+  'direction-horizontal-reverse': `${prefix}-direction-horizontal-reverse`,
+  'direction-vertical': `${prefix}-direction-vertical`,
+  'direction-vertical-reverse': `${prefix}-direction-vertical-reverse`,
   // 主轴对齐
-  'justify-start': css`
-    justify-content: flex-start;
-  `,
-  'justify-end': css`
-    justify-content: flex-end;
-  `,
-  'justify-center': css`
-    justify-content: center;
-  `,
-  'justify-between': css`
-    justify-content: space-between;
-  `,
-  'justify-around': css`
-    justify-content: space-around;
-  `,
-  'justify-evenly': css`
-    justify-content: space-evenly;
-  `,
+  'justify-start': `${prefix}-justify-start`,
+  'justify-end': `${prefix}-justify-end`,
+  'justify-center': `${prefix}-justify-center`,
+  'justify-between': `${prefix}-justify-between`,
+  'justify-around': `${prefix}-justify-around`,
+  'justify-evenly': `${prefix}-justify-evenly`,
   // 交叉轴对齐
-  'align-start': css`
-    align-items: flex-start;
-  `,
-  'align-end': css`
-    align-items: flex-end;
-  `,
-  'align-center': css`
-    align-items: center;
-  `,
-  'align-stretch': css`
-    align-items: stretch;
-  `,
-  'align-baseline': css`
-    align-items: baseline;
-  `,
+  'align-start': `${prefix}-align-start`,
+  'align-end': `${prefix}-align-end`,
+  'align-center': `${prefix}-align-center`,
+  'align-stretch': `${prefix}-align-stretch`,
+  'align-baseline': `${prefix}-align-baseline`,
   // 换行
-  'wrap-wrap': css`
-    flex-wrap: wrap;
-  `,
-  'wrap-nowrap': css`
-    flex-wrap: nowrap;
-  `,
-  'wrap-reverse': css`
-    flex-wrap: wrap-reverse;
-  `,
-};
+  'wrap-wrap': `${prefix}-wrap-wrap`,
+  'wrap-nowrap': `${prefix}-wrap-nowrap`,
+  'wrap-reverse': `${prefix}-wrap-reverse`,
+} as const;
 
 const FlexBasic = forwardRef<any, FlexBasicProps>(
   (
@@ -132,29 +91,30 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
 
     // 组合静态 ClassName
     const staticClassName = useMemo(() => {
-      const classNames = [];
+      const classNames: string[] = [];
       const finalDirection = getFlexDirection(direction, horizontal);
 
       // 映射 direction
-      if (finalDirection === 'row') classNames.push(styles['direction-horizontal']);
-      if (finalDirection === 'row-reverse') classNames.push(styles['direction-horizontal-reverse']);
-      if (finalDirection === 'column') classNames.push(styles['direction-vertical']);
+      if (finalDirection === 'row') classNames.push(classes['direction-horizontal']);
+      if (finalDirection === 'row-reverse')
+        classNames.push(classes['direction-horizontal-reverse']);
+      if (finalDirection === 'column') classNames.push(classes['direction-vertical']);
       if (finalDirection === 'column-reverse')
-        classNames.push(styles['direction-vertical-reverse']);
+        classNames.push(classes['direction-vertical-reverse']);
 
       // 映射 justify-content
       const justifyMap: Record<string, string> = {
-        start: styles['justify-start'],
-        end: styles['justify-end'],
-        'flex-start': styles['justify-start'],
-        'flex-end': styles['justify-end'],
-        center: styles['justify-center'],
-        between: styles['justify-between'],
-        around: styles['justify-around'],
-        evenly: styles['justify-evenly'],
-        'space-between': styles['justify-between'],
-        'space-around': styles['justify-around'],
-        'space-evenly': styles['justify-evenly'],
+        start: classes['justify-start'],
+        end: classes['justify-end'],
+        'flex-start': classes['justify-start'],
+        'flex-end': classes['justify-end'],
+        center: classes['justify-center'],
+        between: classes['justify-between'],
+        around: classes['justify-around'],
+        evenly: classes['justify-evenly'],
+        'space-between': classes['justify-between'],
+        'space-around': classes['justify-around'],
+        'space-evenly': classes['justify-evenly'],
       };
       if (justifyContent && justifyMap[justifyContent]) {
         classNames.push(justifyMap[justifyContent]);
@@ -162,13 +122,13 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
 
       // 映射 align-items
       const alignMap: Record<string, string> = {
-        start: styles['align-start'],
-        end: styles['align-end'],
-        'flex-start': styles['align-start'],
-        'flex-end': styles['align-end'],
-        center: styles['align-center'],
-        stretch: styles['align-stretch'],
-        baseline: styles['align-baseline'],
+        start: classes['align-start'],
+        end: classes['align-end'],
+        'flex-start': classes['align-start'],
+        'flex-end': classes['align-end'],
+        center: classes['align-center'],
+        stretch: classes['align-stretch'],
+        baseline: classes['align-baseline'],
       };
       if (align && alignMap[align]) {
         classNames.push(alignMap[align]);
@@ -176,15 +136,15 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
 
       // 映射 wrap
       const wrapMap: Record<string, string> = {
-        wrap: styles['wrap-wrap'],
-        nowrap: styles['wrap-nowrap'],
-        'wrap-reverse': styles['wrap-reverse'],
+        wrap: classes['wrap-wrap'],
+        nowrap: classes['wrap-nowrap'],
+        'wrap-reverse': classes['wrap-reverse'],
       };
       if (wrap && wrapMap[wrap]) {
         classNames.push(wrapMap[wrap]);
       }
 
-      return cx(classNames);
+      return classNames.join(' ');
     }, [direction, horizontal, justifyContent, align, wrap]);
 
     // 计算动态的 inline-style
@@ -227,7 +187,9 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
       <Container
         ref={ref}
         {...props}
-        className={cx(styles.flex, staticClassName, internalClassName, className)}
+        className={[internalClassName, staticClassName, classes.flex, className]
+          .filter(Boolean)
+          .join(' ')}
         style={dynamicStyle}
       >
         {children}
