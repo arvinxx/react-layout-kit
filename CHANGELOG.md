@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;2.0.0-alpha.5](https://github.com/arvinxx/react-layout-kit/compare/v2.0.0-alpha.4...v2.0.0-alpha.5)
+
+<sup>Released on **2025-07-19**</sup>
+
+#### 🐛 修复
+
+- Try again pure css.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Try again pure css ([ec86c19](https://github.com/arvinxx/react-layout-kit/commit/ec86c19))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;2.0.0-alpha.4](https://github.com/arvinxx/react-layout-kit/compare/v2.0.0-alpha.3...v2.0.0-alpha.4)
 
 <sup>Released on **2025-07-18**</sup>
