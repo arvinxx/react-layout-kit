@@ -1,6 +1,6 @@
 'use client';
 
-import { CSSProperties, ElementType, forwardRef, useMemo } from 'react';
+import { CSSProperties, ElementType, memo, useMemo } from 'react';
 import './index.css';
 
 import { ContentPosition, DivProps, FlexDirection } from '@/type';
@@ -61,32 +61,29 @@ const classes = {
   'wrap-reverse': `${prefix}-wrap-reverse`,
 } as const;
 
-const FlexBasic = forwardRef<any, FlexBasicProps>(
-  (
-    {
-      visible = true,
-      flex,
-      gap,
-      direction,
-      horizontal,
-      align,
-      justify,
-      distribution,
-      height,
-      width,
-      padding,
-      paddingInline,
-      paddingBlock,
-      as: Container = 'div',
-      internalClassName,
-      className,
-      children,
-      wrap,
-      style, // 提取 style prop
-      ...props
-    },
-    ref,
-  ) => {
+const FlexBasic = memo<FlexBasicProps>(
+  ({
+    visible = true,
+    flex,
+    gap,
+    direction,
+    horizontal,
+    align,
+    justify,
+    distribution,
+    height,
+    width,
+    padding,
+    paddingInline,
+    paddingBlock,
+    as: Container = 'div',
+    internalClassName,
+    className,
+    children,
+    wrap,
+    style, // 提取 style prop
+    ...props
+  }) => {
     const justifyContent = justify || distribution;
 
     // 组合静态 ClassName
@@ -185,7 +182,6 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
 
     return (
       <Container
-        ref={ref}
         {...props}
         className={[internalClassName, staticClassName, classes.flex, className]
           .filter(Boolean)
