@@ -1,7 +1,7 @@
 import { ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
 import { css, cx } from '@emotion/css';
-import { CSSProperties, ElementType, forwardRef, useMemo } from 'react';
+import { CSSProperties, ElementType, memo, Ref, useMemo } from 'react';
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
@@ -89,46 +89,46 @@ export interface IFlexbox {
   as?: ElementType;
 }
 
-export interface FlexBasicProps extends IFlexbox, Omit<DivProps, 'ref'> {
+export interface FlexBasicProps extends IFlexbox, DivProps {
   internalClassName?: string;
+  ref?: Ref<any>;
 }
 
-const FlexBasic = forwardRef<any, FlexBasicProps>(
-  (
-    {
-      visible,
-      flex,
-      gap,
-      direction,
-      horizontal,
-      align,
-      justify,
-      distribution,
-      height,
-      width,
-      padding,
-      paddingInline,
-      paddingBlock,
-      as: Container = 'div',
-      internalClassName,
-      className,
-      children,
-      wrap,
-      ...props
-    },
+const FlexBasic = memo<FlexBasicProps>(
+  ({
+    visible,
+    flex,
+    gap,
+    direction,
+    horizontal,
+    align,
+    justify,
+    distribution,
+    height,
+    width,
+    padding,
+    paddingInline,
+    paddingBlock,
+    as: Container = 'div',
+    internalClassName,
+    className,
+    children,
+    wrap,
     ref,
-  ) => {
+    ...props
+  }) => {
     const justifyContent = justify || distribution;
 
-    const finalWidth = useMemo(() => {
-      if (isHorizontal(direction, horizontal) && !width && isSpaceDistribution(justifyContent))
-        return '100%';
+    const mergedClassName = useMemo(() => {
+      const calcWidth = () => {
+        if (isHorizontal(direction, horizontal) && !width && isSpaceDistribution(justifyContent))
+          return '100%';
 
-      return getCssValue(width);
-    }, [direction, horizontal, justifyContent, width]);
+        return getCssValue(width);
+      };
+      const finalWidth = calcWidth();
 
-    const funcClassName = useMemo(
-      () => css`
+      const funcClassName = css`
         display: ${visible === false ? 'none' : 'flex'};
 
         flex: ${flex};
@@ -148,26 +148,29 @@ const FlexBasic = forwardRef<any, FlexBasicProps>(
         padding-block: ${getCssValue(paddingBlock)};
 
         gap: ${getCssValue(gap)};
-      `,
-      [
-        visible,
-        flex,
-        direction,
-        horizontal,
-        wrap,
-        justifyContent,
-        align,
-        finalWidth,
-        height,
-        padding,
-        paddingInline,
-        paddingBlock,
-        gap,
-      ],
-    );
+      `;
+
+      return cx(internalClassName, funcClassName, className);
+    }, [
+      visible,
+      flex,
+      direction,
+      horizontal,
+      width,
+      wrap,
+      justifyContent,
+      align,
+      height,
+      padding,
+      paddingInline,
+      paddingBlock,
+      gap,
+      internalClassName,
+      className,
+    ]);
 
     return (
-      <Container ref={ref} {...props} className={cx(internalClassName, funcClassName, className)}>
+      <Container ref={ref} {...props} className={mergedClassName}>
         {children}
       </Container>
     );
