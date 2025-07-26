@@ -1,4 +1,4 @@
-import { createSerializer } from '@emotion/jest';
 import '@testing-library/jest-dom';
 
-expect.addSnapshotSerializer(createSerializer());
+// Import CSS styles for testing
+import '../src/styles.css';

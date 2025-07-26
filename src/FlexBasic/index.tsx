@@ -1,7 +1,7 @@
 import { ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
-import { css, cx } from '@emotion/css';
 import { CSSProperties, ElementType, memo, Ref, useMemo } from 'react';
+import '../styles.css';
 
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
@@ -119,38 +119,143 @@ const FlexBasic = memo<FlexBasicProps>(
   }) => {
     const justifyContent = justify || distribution;
 
-    const mergedClassName = useMemo(() => {
+    const { classNames, styles } = useMemo(() => {
+      const classList = ['rlk-flex'];
+      const cssVars: Record<string, string> = {};
+
+      // Handle visibility
+      if (visible === false) {
+        classList.push('rlk-hidden');
+      }
+
+      // Handle flex direction
+      const flexDirection = getFlexDirection(direction, horizontal);
+      switch (flexDirection) {
+        case 'row':
+          classList.push('rlk-flex-row');
+          break;
+        case 'row-reverse':
+          classList.push('rlk-flex-row-reverse');
+          break;
+        case 'column':
+          classList.push('rlk-flex-col');
+          break;
+        case 'column-reverse':
+          classList.push('rlk-flex-col-reverse');
+          break;
+      }
+
+      // Handle justify content
+      if (justifyContent) {
+        switch (justifyContent) {
+          case 'flex-start':
+          case 'start':
+            classList.push('rlk-justify-start');
+            break;
+          case 'flex-end':
+          case 'end':
+            classList.push('rlk-justify-end');
+            break;
+          case 'center':
+            classList.push('rlk-justify-center');
+            break;
+          case 'space-between':
+            classList.push('rlk-justify-between');
+            break;
+          case 'space-around':
+            classList.push('rlk-justify-around');
+            break;
+          case 'space-evenly':
+            classList.push('rlk-justify-evenly');
+            break;
+        }
+      }
+
+      // Handle align items
+      if (align) {
+        switch (align) {
+          case 'flex-start':
+          case 'start':
+            classList.push('rlk-items-start');
+            break;
+          case 'flex-end':
+          case 'end':
+            classList.push('rlk-items-end');
+            break;
+          case 'center':
+            classList.push('rlk-items-center');
+            break;
+          case 'baseline':
+            classList.push('rlk-items-baseline');
+            break;
+          case 'stretch':
+            classList.push('rlk-items-stretch');
+            break;
+        }
+      }
+
+      // Handle flex wrap
+      if (wrap) {
+        switch (wrap) {
+          case 'nowrap':
+            classList.push('rlk-flex-nowrap');
+            break;
+          case 'wrap':
+            classList.push('rlk-flex-wrap');
+            break;
+          case 'wrap-reverse':
+            classList.push('rlk-flex-wrap-reverse');
+            break;
+        }
+      }
+
+      // Handle CSS variables for dynamic values
       const calcWidth = () => {
         if (isHorizontal(direction, horizontal) && !width && isSpaceDistribution(justifyContent))
           return '100%';
-
         return getCssValue(width);
       };
-      const finalWidth = calcWidth();
+      const widthValue = calcWidth();
+      if (widthValue) cssVars['--rlk-width'] = widthValue;
 
-      const funcClassName = css`
-        display: ${visible === false ? 'none' : 'flex'};
+      if (height !== undefined) {
+        const heightValue = getCssValue(height);
+        if (heightValue) cssVars['--rlk-height'] = heightValue;
+      }
 
-        flex: ${flex};
+      if (flex !== undefined) {
+        cssVars['--rlk-flex'] = String(flex);
+      }
 
-        flex-direction: ${getFlexDirection(direction, horizontal)};
-        flex-wrap: ${wrap};
+      if (gap !== undefined) {
+        const gapValue = getCssValue(gap);
+        if (gapValue) cssVars['--rlk-gap'] = gapValue;
+      }
 
-        justify-content: ${justifyContent};
-        align-items: ${align};
+      if (padding !== undefined) {
+        const paddingValue = getCssValue(padding);
+        if (paddingValue) cssVars['--rlk-padding'] = paddingValue;
+      }
 
-        width: ${finalWidth};
-        height: ${getCssValue(height)};
+      if (paddingInline !== undefined) {
+        const paddingInlineValue = getCssValue(paddingInline);
+        if (paddingInlineValue) cssVars['--rlk-padding-inline'] = paddingInlineValue;
+      }
 
-        padding: ${getCssValue(padding)};
+      if (paddingBlock !== undefined) {
+        const paddingBlockValue = getCssValue(paddingBlock);
+        if (paddingBlockValue) cssVars['--rlk-padding-block'] = paddingBlockValue;
+      }
 
-        padding-inline: ${getCssValue(paddingInline)};
-        padding-block: ${getCssValue(paddingBlock)};
+      // Combine class names
+      const combinedClassNames = [internalClassName, ...classList, className]
+        .filter(Boolean)
+        .join(' ');
 
-        gap: ${getCssValue(gap)};
-      `;
-
-      return cx(internalClassName, funcClassName, className);
+      return {
+        classNames: combinedClassNames,
+        styles: cssVars as CSSProperties,
+      };
     }, [
       visible,
       flex,
@@ -170,7 +275,7 @@ const FlexBasic = memo<FlexBasicProps>(
     ]);
 
     return (
-      <Container ref={ref} {...props} className={mergedClassName}>
+      <Container ref={ref} {...props} className={classNames} style={{ ...styles, ...props.style }}>
         {children}
       </Container>
     );

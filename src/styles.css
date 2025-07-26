@@ -1,0 +1,98 @@
+/* React Layout Kit - Pure CSS Styles */
+
+/* Base flexbox class with CSS variables */
+.rlk-flex {
+  display: flex;
+  
+  /* Dynamic values controlled by CSS variables */
+  width: var(--rlk-width);
+  height: var(--rlk-height);
+  flex: var(--rlk-flex);
+  gap: var(--rlk-gap);
+  
+  /* Padding variables */
+  padding: var(--rlk-padding);
+  padding-inline: var(--rlk-padding-inline);
+  padding-block: var(--rlk-padding-block);
+}
+
+/* Hidden state */
+.rlk-hidden {
+  display: none !important;
+}
+
+/* Flex direction classes */
+.rlk-flex-row {
+  flex-direction: row;
+}
+
+.rlk-flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.rlk-flex-col {
+  flex-direction: column;
+}
+
+.rlk-flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+/* Justify content (main axis alignment) */
+.rlk-justify-start {
+  justify-content: flex-start;
+}
+
+.rlk-justify-end {
+  justify-content: flex-end;
+}
+
+.rlk-justify-center {
+  justify-content: center;
+}
+
+.rlk-justify-between {
+  justify-content: space-between;
+}
+
+.rlk-justify-around {
+  justify-content: space-around;
+}
+
+.rlk-justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* Align items (cross axis alignment) */
+.rlk-items-start {
+  align-items: flex-start;
+}
+
+.rlk-items-end {
+  align-items: flex-end;
+}
+
+.rlk-items-center {
+  align-items: center;
+}
+
+.rlk-items-baseline {
+  align-items: baseline;
+}
+
+.rlk-items-stretch {
+  align-items: stretch;
+}
+
+/* Flex wrap */
+.rlk-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.rlk-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.rlk-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}

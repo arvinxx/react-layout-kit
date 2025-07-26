@@ -10,5 +10,6 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
       'react-layout-kit': resolve(__dirname, './src'),
     },
+    css: true, // Enable CSS processing in tests
   },
 });

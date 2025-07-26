@@ -32,10 +32,10 @@ describe('Flexbox', () => {
         <div>2</div>
       </Flexbox>,
     );
-    const container = res.container.firstChild;
+    const container = res.container.firstChild as HTMLElement;
 
     expect(container).toHaveStyle('display:flex');
-    expect(container).toHaveStyle('gap:2px');
+    expect(container.style.getPropertyValue('--rlk-gap')).toBe('2px');
     expect(res.container).toMatchSnapshot();
   });
 
@@ -47,10 +47,10 @@ describe('Flexbox', () => {
       </Flexbox>,
     );
 
-    const container = res.container.firstChild;
+    const container = res.container.firstChild as HTMLElement;
 
     expect(container).toHaveStyle('display:none');
-    expect(container).toHaveStyle('gap:2px');
+    expect(container.style.getPropertyValue('--rlk-gap')).toBe('2px');
     expect(res.container).toMatchSnapshot();
   });
 
@@ -67,7 +67,7 @@ describe('Flexbox', () => {
     expect(container).toHaveStyle('display:flex');
     expect(container).toHaveStyle('flex-direction:row');
     expect(container).toHaveStyle('justify-content:space-between');
-    expect(container).toHaveStyle('width:100%');
+    expect((container as HTMLElement).style.getPropertyValue('--rlk-width')).toBe('100%');
     expect(res).toMatchSnapshot();
   });
 
@@ -108,7 +108,7 @@ describe('Flexbox', () => {
     );
     const container = res.container.firstChild;
 
-    expect(container).toHaveStyle('padding-inline:24px');
+    expect((container as HTMLElement).style.getPropertyValue('--rlk-padding-inline')).toBe('24px');
     expect(res.container).toMatchSnapshot();
   });
 
@@ -121,7 +121,7 @@ describe('Flexbox', () => {
     );
     const container = res.container.firstChild;
 
-    expect(container).toHaveStyle('padding-block:24px');
+    expect((container as HTMLElement).style.getPropertyValue('--rlk-padding-block')).toBe('24px');
     expect(res.container).toMatchSnapshot();
   });
 });

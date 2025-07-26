@@ -17,7 +17,9 @@
   },
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
@@ -59,8 +61,7 @@
     ]
   },
   "dependencies": {
-    "@babel/runtime": "^7.28.2",
-    "@emotion/css": "^11.13.5"
+    "@babel/runtime": "^7.28.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17",
