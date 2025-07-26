@@ -1,5 +1,34 @@
 # Changelog
 
+## [Version&nbsp;2.0.0](https://github.com/arvinxx/react-layout-kit/compare/v1.9.2...v2.0.0)
+
+<sup>Released on **2025-07-26**</sup>
+
+#### ✨ 新特性
+
+- Bump deps and refactor the flex basic.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Bump deps and refactor the flex basic, closes [#10](https://github.com/arvinxx/react-layout-kit/issues/10) ([4fd8ef2](https://github.com/arvinxx/react-layout-kit/commit/4fd8ef2))
+
+</details>
+
+#### 💥 BREAKING CHANGES
+
+- need react >= 19
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;2.0.0-beta.1](https://github.com/arvinxx/react-layout-kit/compare/v1.9.2...v2.0.0-beta.1)
 
 <sup>Released on **2025-07-25**</sup>
