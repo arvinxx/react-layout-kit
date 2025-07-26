@@ -3,17 +3,17 @@
 /* Base flexbox class with CSS variables */
 .rlk-flex {
   display: flex;
-  
-  /* Dynamic values controlled by CSS variables */
-  width: var(--rlk-width);
-  height: var(--rlk-height);
-  flex: var(--rlk-flex);
-  gap: var(--rlk-gap);
-  
-  /* Padding variables */
-  padding: var(--rlk-padding);
-  padding-inline: var(--rlk-padding-inline);
-  padding-block: var(--rlk-padding-block);
+
+  /* Dynamic values controlled by CSS variables with fallbacks */
+  width: var(--rlk-width, auto);
+  height: var(--rlk-height, auto);
+  flex: var(--rlk-flex, 0 1 auto);
+  gap: var(--rlk-gap, 0);
+
+  /* Padding variables with fallbacks */
+  padding: var(--rlk-padding, 0);
+  padding-inline: var(--rlk-padding-inline, unset);
+  padding-block: var(--rlk-padding-block, unset);
 }
 
 /* Hidden state */
