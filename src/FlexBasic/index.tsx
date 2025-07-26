@@ -122,6 +122,7 @@ const FlexBasic = memo<FlexBasicProps>(
     const { classNames, styles } = useMemo(() => {
       const classList = ['rlk-flex'];
       const cssVars: Record<string, string> = {};
+      const directStyles: CSSProperties = {};
 
       // Handle visibility
       if (visible === false) {
@@ -209,29 +210,37 @@ const FlexBasic = memo<FlexBasicProps>(
         }
       }
 
-      // Handle CSS variables for dynamic values
+      // Handle width directly as style
       const calcWidth = () => {
         if (isHorizontal(direction, horizontal) && !width && isSpaceDistribution(justifyContent))
           return '100%';
         return getCssValue(width);
       };
       const widthValue = calcWidth();
-      if (widthValue) cssVars['--rlk-width'] = widthValue;
+      if (widthValue) {
+        directStyles.width = widthValue;
+      }
 
+      // Handle height directly as style
       if (height !== undefined) {
         const heightValue = getCssValue(height);
-        if (heightValue) cssVars['--rlk-height'] = heightValue;
+        if (heightValue) {
+          directStyles.height = heightValue;
+        }
       }
 
+      // Handle flex directly as style
       if (flex !== undefined) {
-        cssVars['--rlk-flex'] = String(flex);
+        directStyles.flex = String(flex);
       }
 
+      // Handle gap as CSS variable
       if (gap !== undefined) {
         const gapValue = getCssValue(gap);
         if (gapValue) cssVars['--rlk-gap'] = gapValue;
       }
 
+      // Handle padding as CSS variables
       if (padding !== undefined) {
         const paddingValue = getCssValue(padding);
         if (paddingValue) cssVars['--rlk-padding'] = paddingValue;
@@ -254,7 +263,7 @@ const FlexBasic = memo<FlexBasicProps>(
 
       return {
         classNames: combinedClassNames,
-        styles: cssVars as CSSProperties,
+        styles: { ...cssVars, ...directStyles } as CSSProperties,
       };
     }, [
       visible,

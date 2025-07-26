@@ -3,13 +3,10 @@
 /* Base flexbox class with CSS variables */
 .rlk-flex {
   display: flex;
-
-  /* Dynamic values controlled by CSS variables with fallbacks */
-  width: var(--rlk-width, auto);
-  height: var(--rlk-height, auto);
-  flex: var(--rlk-flex, 0 1 auto);
+  
+  /* Only keep gap and padding as CSS variables */
   gap: var(--rlk-gap, 0);
-
+  
   /* Padding variables with fallbacks */
   padding: var(--rlk-padding, 0);
   padding-inline: var(--rlk-padding-inline, unset);
