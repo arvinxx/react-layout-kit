@@ -118,7 +118,7 @@ exports[`Flexbox > 横向撑开 1`] = `
   <div
     class="layoutkit-flexbox rlk-flex rlk-flex-row rlk-justify-between"
     data-testid="container"
-    style="--rlk-width: 100%;"
+    style="width: 100%;"
   >
     <div>
       1
