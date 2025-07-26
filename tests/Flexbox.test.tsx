@@ -67,7 +67,7 @@ describe('Flexbox', () => {
     expect(container).toHaveStyle('display:flex');
     expect(container).toHaveStyle('flex-direction:row');
     expect(container).toHaveStyle('justify-content:space-between');
-    expect((container as HTMLElement).style.getPropertyValue('--rlk-width')).toBe('100%');
+    expect(container).toHaveStyle('width:100%');
     expect(res).toMatchSnapshot();
   });
 
