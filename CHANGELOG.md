@@ -1,5 +1,34 @@
 # Changelog
 
+## [Version&nbsp;3.0.0-alpha.1](https://github.com/arvinxx/react-layout-kit/compare/v2.0.0...v3.0.0-alpha.1)
+
+<sup>Released on **2025-07-26**</sup>
+
+#### ♻ 重构
+
+- Refactor to pure css for better performance.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Code refactoring
+
+- Refactor to pure css for better performance ([ff9d0f8](https://github.com/arvinxx/react-layout-kit/commit/ff9d0f8))
+
+</details>
+
+#### 💥 BREAKING CHANGES
+
+- use pure css mode
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;2.0.0](https://github.com/arvinxx/react-layout-kit/compare/v1.9.2...v2.0.0)
 
 <sup>Released on **2025-07-26**</sup>
