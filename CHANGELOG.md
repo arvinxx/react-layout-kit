@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;3.0.0-alpha.2](https://github.com/arvinxx/react-layout-kit/compare/v3.0.0-alpha.1...v3.0.0-alpha.2)
+
+<sup>Released on **2025-07-26**</sup>
+
+#### 🐛 修复
+
+- Try to fix height and width.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Try to fix height and width ([f76d131](https://github.com/arvinxx/react-layout-kit/commit/f76d131))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;3.0.0-alpha.1](https://github.com/arvinxx/react-layout-kit/compare/v2.0.0...v3.0.0-alpha.1)
 
 <sup>Released on **2025-07-26**</sup>
