@@ -1,8 +1,8 @@
 import { ContentPosition, DivProps, FlexDirection } from '@/type';
 import { getCssValue, getFlexDirection, isHorizontal, isSpaceDistribution } from '@/utils';
 import { css, cx } from '@emotion/css';
+import isEqual from 'fast-deep-equal';
 import { CSSProperties, ElementType, memo, Ref, useMemo } from 'react';
-
 export type CommonSpaceNumber = 2 | 4 | 8 | 12 | 16 | 24;
 
 /**
@@ -175,6 +175,7 @@ const FlexBasic = memo<FlexBasicProps>(
       </Container>
     );
   },
+  isEqual,
 );
 
 FlexBasic.displayName = 'FlexBasic';
